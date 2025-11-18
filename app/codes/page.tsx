@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Gift, Clock, Users, Tv } from 'lucide-react';
+import { Gift, Clock, Users, Tv, Check } from 'lucide-react';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
@@ -294,20 +294,20 @@ export default function CodesPage() {
         <section className="mb-16 bg-blue-accent/5 border border-blue-accent/20 rounded-lg p-6">
           <h2 className="text-xl font-bold text-text-primary mb-4">Important Notes</h2>
           <ul className="space-y-2 text-text-secondary">
-            <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">✅</span>
+            <li className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span>All codes work on <strong>all servers</strong> (no regional restrictions)</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">✅</span>
+            <li className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span>Each code can be redeemed <strong>once per account</strong></span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">✅</span>
+            <li className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span>Codes are <strong>case-sensitive</strong> - enter them exactly as shown</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-green-400 mt-1">✅</span>
+            <li className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <span>New codes are added regularly - <strong>bookmark this page</strong>!</span>
             </li>
           </ul>
