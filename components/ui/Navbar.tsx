@@ -21,11 +21,12 @@ const defaultLinks: NavLink[] = [
   },
   {
     label: 'Guides',
-    href: '/beginner-guide',
+    href: '/guides/is-where-winds-meet-for-you',
     submenu: [
-      { label: 'Beginner Guide', href: '/beginner-guide' },
-      { label: 'Leveling Guide', href: '/leveling-guide' },
-      { label: 'Combat Overview', href: '/combat-overview' },
+      { label: 'Is WWM for You?', href: '/guides/is-where-winds-meet-for-you' },
+      { label: 'First 3 Hours', href: '/guides/first-3-hours-guide' },
+      { label: 'Qinghe & Kaifeng Tips', href: '/guides/qinghe-kaifeng-tips' },
+      { label: 'Combat & Builds', href: '/guides/combat-guide-beginner-builds' },
     ],
   },
   {

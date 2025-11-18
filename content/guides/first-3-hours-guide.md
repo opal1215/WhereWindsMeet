@@ -13,8 +13,8 @@ date: "2025-11-18"
 
 If you’ve just downloaded **Where Winds Meet** and feel a bit lost, this is a simple **Where Winds Meet beginner guide** focused on your **first few hours**. You’ll learn what to do first, what to ignore for now, and how to enjoy the game without feeling overwhelmed.
 
-If you’re still not sure whether this game fits your taste, start with our overview article first:  
-[Is Where Winds Meet for You? A Simple Breakdown for Souls & Genshin Fans](/beginner/is-where-winds-meet-for-you).
+If you're still not sure whether this game fits your taste, start with our overview article first:
+[Is Where Winds Meet for You? A Simple Breakdown for Souls & Genshin Fans](/guides/is-where-winds-meet-for-you).
 
 ---
 

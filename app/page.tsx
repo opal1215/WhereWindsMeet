@@ -15,13 +15,14 @@ export default function HomePage() {
         title="Find Your Way Through the Wuxia Winds"
         subtitle="Beginner tips, builds, maps and resources for PS5 & PC players."
         goldSubtitle={true}
+        backgroundImage="/images/hero-bg.webp"
         primaryCTA={{
-          label: 'Beginner Guide',
-          href: '/beginner-guide',
+          label: 'Start Here',
+          href: '/guides/is-where-winds-meet-for-you',
         }}
         secondaryCTA={{
-          label: 'Top Builds',
-          href: '/builds',
+          label: 'Free Codes',
+          href: '/codes',
         }}
       />
 
@@ -81,28 +82,28 @@ export default function HomePage() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card
-            title="Beginner Guide"
-            description="Learn the basics of Where Winds Meet. Master combat, progression, and essential systems."
-            href="/beginner-guide"
+            title="Is Where Winds Meet for You?"
+            description="Honest breakdown for Souls players, Genshin fans, and MMO veterans. Learn if this game matches your playstyle."
+            href="/guides/is-where-winds-meet-for-you"
             icon={<BookOpen className="w-8 h-8" />}
           />
           <Card
-            title="Leveling Guide"
-            description="Fast-track your character progression with optimized leveling strategies and routes."
-            href="/leveling-guide"
+            title="First 3 Hours Guide"
+            description="Simple tips for your first session. What to do first, what to ignore, and how to enjoy without feeling overwhelmed."
+            href="/guides/first-3-hours-guide"
             icon={<Zap className="w-8 h-8" />}
           />
           <Card
-            title="Game Modes"
-            description="Understand RPG vs MMO modes and choose the playstyle that fits you best."
-            href="/game-modes-overview"
-            icon={<Gamepad2 className="w-8 h-8" />}
+            title="Qinghe & Kaifeng Tips"
+            description="15 little things the game never explains. Small tricks, warnings, and quality-of-life advice for early regions."
+            href="/guides/qinghe-kaifeng-tips"
+            icon={<Map className="w-8 h-8" />}
           />
           <Card
-            title="Settings Optimization"
-            description="Optimize your graphics and controls for the best performance and experience."
-            href="/settings-optimization"
-            icon={<Settings className="w-8 h-8" />}
+            title="Combat Guide & Simple Builds"
+            description="Practical combat overview for beginners: weapons, martial arts, and easy builds that feel good to play."
+            href="/guides/combat-guide-beginner-builds"
+            icon={<Sword className="w-8 h-8" />}
           />
         </div>
       </SectionContainer>
