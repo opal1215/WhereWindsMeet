@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getGuides } from '@/lib/content';
+import { getAllGuides } from '@/lib/content';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://wherewindsmeetgame.org';
@@ -96,10 +96,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Dynamic guide pages (from content/guides/)
-  const guides = getGuides();
+  const guides = getAllGuides();
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${baseUrl}/guides/${guide.slug}`,
-    lastModified: guide.date ? new Date(guide.date) : currentDate,
+    lastModified: guide.metadata.dateModified ? new Date(guide.metadata.dateModified) : currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
