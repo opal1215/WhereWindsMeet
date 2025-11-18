@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass}`}>
+    <section className={`relative ${heightClass} flex flex-col justify-start`} style={{ paddingTop: '80px' }}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -44,25 +44,27 @@ export const Hero: React.FC<HeroProps> = ({
         />
       </div>
 
-      {/* Light Overlay - barely visible */}
-      <div className="absolute inset-0 bg-black/20 -z-10" />
+      {/* Very Light Overlay - almost invisible */}
+      <div className="absolute inset-0 bg-black/15 -z-10" />
 
-      {/* Content Container - positioned at top third */}
-      <div className="max-w-4xl px-5 md:px-10 text-center mx-auto" style={{ paddingTop: '25vh' }}>
-        {/* Title with correct sizing */}
+      {/* Content Container - close to navbar */}
+      <div className="max-w-4xl px-5 md:px-10 text-center mx-auto" style={{ marginTop: '20px' }}>
+        {/* Title with bright gold color and glow */}
         <h1
-          className="font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5"
+          className="font-display font-black mb-5"
           style={{
-            fontSize: variant === 'default' ? '3.5rem' : '2.5rem',
-            lineHeight: '1.2',
-            letterSpacing: '0.05em',
-            textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+            color: '#FDB913',
+            fontSize: variant === 'default' ? '4rem' : '2.5rem',
+            fontWeight: 800,
+            lineHeight: '1',
+            letterSpacing: '-0.02em',
+            textShadow: '0 0 20px rgba(253, 185, 19, 0.5), 2px 2px 8px rgba(0, 0, 0, 0.8), -1px -1px 0 rgba(0, 0, 0, 0.5)',
           }}
         >
           {title}
         </h1>
 
-        {/* Subtitle with correct sizing */}
+        {/* Subtitle */}
         {subtitle && (
           <p
             className={`font-body ${

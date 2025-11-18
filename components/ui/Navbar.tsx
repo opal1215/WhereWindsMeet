@@ -70,12 +70,12 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
     <nav
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: 'rgba(0, 0, 0, 0.3)',
+        background: 'rgba(0, 20, 40, 0.85)',
         backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        height: '60px',
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-5 flex items-center justify-between" style={{ height: '60px' }}>
+      <div className="max-w-[1400px] mx-auto px-5 flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center font-display font-black text-bg-primary text-xl shadow-lg">
