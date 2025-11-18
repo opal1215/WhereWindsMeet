@@ -93,8 +93,8 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {/* Google Analytics 4 - Replace with your GA4 Measurement ID */}
-        <GoogleAnalytics measurementId="G-XXXXXXXXXX" />
+        {/* Google Analytics 4 */}
+        <GoogleAnalytics measurementId="G-VPSL5K8MFF" />
 
         <Navbar />
         <main>{children}</main>
