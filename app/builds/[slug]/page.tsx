@@ -6,129 +6,16 @@ import { HowToSchema } from '@/components/seo/HowToSchema';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { RelatedContent, RelatedLink } from '@/components/ui/RelatedContent';
+import { RelatedContent } from '@/components/ui/RelatedContent';
 import { Sword, Shield, Zap, Target, Heart, TrendingUp } from 'lucide-react';
-
-// Build data structure
-interface BuildData {
-  title: string;
-  description: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard' | 'Very Hard';
-  playstyle: string;
-  author: string;
-  datePublished: string;
-  dateModified: string;
-  image: string;
-  overview: string;
-  stats: {
-    damage: number;
-    defense: number;
-    mobility: number;
-    difficulty: number;
-  };
-  weapons: string[];
-  skills: string[];
-  attributes: {
-    name: string;
-    value: string;
-    priority: 'High' | 'Medium' | 'Low';
-  }[];
-  gameplay: string;
-  strengths: string[];
-  weaknesses: string[];
-  steps: {
-    name: string;
-    text: string;
-  }[];
-  relatedBuilds: RelatedLink[];
-}
-
-const buildsData: Record<string, BuildData> = {
-  'pve-dps': {
-    title: 'PVE DPS Build - Infernal Twinblades',
-    description: 'Maximum damage output build for endgame PVE content using Dual Blades. Perfect for boss fights and dungeons.',
-    difficulty: 'Hard',
-    playstyle: 'Aggressive Melee DPS',
-    author: 'WWM Builds Team',
-    datePublished: '2025-11-15',
-    dateModified: '2025-11-18',
-    image: '/images/cards/build-pve-dps.jpg',
-    overview: 'This build focuses on maximizing burst damage and sustained DPS through aggressive dual blade combat. It requires precise timing and positioning but rewards skilled players with top-tier damage output.',
-    stats: {
-      damage: 95,
-      defense: 40,
-      mobility: 85,
-      difficulty: 80,
-    },
-    weapons: ['Infernal Twinblades', 'Celestial Daggers (Alternative)'],
-    skills: [
-      'Phantom Strike',
-      'Blade Fury',
-      'Dancing Shadows',
-      'Executioner\'s Dance',
-      'Shadow Step',
-    ],
-    attributes: [
-      { name: 'Strength', value: '60 points', priority: 'High' },
-      { name: 'Agility', value: '80 points', priority: 'High' },
-      { name: 'Critical Chance', value: '45%+', priority: 'High' },
-      { name: 'Attack Speed', value: '30%+', priority: 'Medium' },
-      { name: 'Vitality', value: '40 points', priority: 'Medium' },
-      { name: 'Defense', value: '20 points', priority: 'Low' },
-    ],
-    gameplay: 'Open combat with Shadow Step to close distance, apply Blade Fury for damage buff, then alternate between Phantom Strike and Dancing Shadows. Save Executioner\'s Dance for execute phase (below 30% HP). Maintain high uptime on Blade Fury buff.',
-    strengths: [
-      'Highest single-target DPS in the game',
-      'Excellent burst damage windows',
-      'High mobility for dodging mechanics',
-      'Strong execute potential',
-    ],
-    weaknesses: [
-      'Low survivability - requires good positioning',
-      'Heavily gear-dependent',
-      'Difficult for beginners to master',
-      'Weak against multiple enemies',
-    ],
-    steps: [
-      {
-        name: 'Early Game (Level 1-30)',
-        text: 'Focus on leveling Agility and Strength equally. Use any dual blades available. Prioritize unlocking Shadow Step at level 15.',
-      },
-      {
-        name: 'Mid Game (Level 31-50)',
-        text: 'Farm for Infernal Twinblades in Northern Frontier region. Begin investing in Critical Chance gear. Unlock all core skills.',
-      },
-      {
-        name: 'Late Game (Level 51+)',
-        text: 'Optimize gear for Critical Chance and Attack Speed. Fine-tune skill rotation. Practice boss mechanics for maximum DPS uptime.',
-      },
-    ],
-    relatedBuilds: [
-      {
-        title: 'PVE Tank Build',
-        url: '/builds/pve-tank',
-        description: 'Defensive build for survivability in group content',
-      },
-      {
-        title: 'PVP Duelist Build',
-        url: '/builds/pvp-duelist',
-        description: 'Balanced build optimized for 1v1 combat',
-      },
-      {
-        title: 'Hybrid DPS Build',
-        url: '/builds/hybrid-dps',
-        description: 'Ranged/melee hybrid for versatility',
-      },
-    ],
-  },
-};
+import { getBuildBySlug, getAllBuilds } from '@/lib/content';
 
 interface PageProps {
   params: { slug: string };
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const build = buildsData[params.slug];
+  const build = getBuildBySlug(params.slug);
 
   if (!build) {
     return {
@@ -136,32 +23,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const { metadata } = build;
+
   return {
-    title: build.title,
-    description: build.description,
-    keywords: ['where winds meet', 'wwm build', 'build guide', build.playstyle.toLowerCase()],
-    authors: [{ name: build.author }],
+    title: metadata.title,
+    description: metadata.description,
+    keywords: ['where winds meet', 'wwm build', 'build guide', metadata.playstyle.toLowerCase()],
+    authors: [{ name: metadata.author }],
     openGraph: {
-      title: build.title,
-      description: build.description,
+      title: metadata.title,
+      description: metadata.description,
       type: 'article',
-      publishedTime: build.datePublished,
-      modifiedTime: build.dateModified,
-      authors: [build.author],
+      publishedTime: metadata.datePublished,
+      modifiedTime: metadata.dateModified,
+      authors: [metadata.author],
       images: [
         {
-          url: build.image,
+          url: metadata.image,
           width: 1200,
           height: 630,
-          alt: build.title,
+          alt: metadata.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: build.title,
-      description: build.description,
-      images: [build.image],
+      title: metadata.title,
+      description: metadata.description,
+      images: [metadata.image],
     },
     alternates: {
       canonical: `https://wherewindsmeetgame.org/builds/${params.slug}`,
@@ -170,44 +59,46 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default function BuildPage({ params }: PageProps) {
-  const build = buildsData[params.slug];
+  const build = getBuildBySlug(params.slug);
 
   if (!build) {
     notFound();
   }
+
+  const { metadata, content } = build;
 
   const difficultyColor = {
     'Easy': 'text-green-400',
     'Medium': 'text-yellow-400',
     'Hard': 'text-orange-400',
     'Very Hard': 'text-red-400',
-  }[build.difficulty];
+  }[metadata.difficulty];
 
   return (
     <>
       {/* Schema Markup */}
       <ArticleSchema
-        headline={build.title}
-        description={build.description}
-        author={build.author}
-        datePublished={build.datePublished}
-        dateModified={build.dateModified}
-        image={build.image}
+        headline={metadata.title}
+        description={metadata.description}
+        author={metadata.author}
+        datePublished={metadata.datePublished}
+        dateModified={metadata.dateModified}
+        image={metadata.image}
         url={`https://wherewindsmeetgame.org/builds/${params.slug}`}
       />
 
       <HowToSchema
-        name={build.title}
-        description={build.description}
-        image={build.image}
-        steps={build.steps}
+        name={metadata.title}
+        description={metadata.description}
+        image={metadata.image}
+        steps={metadata.steps}
       />
 
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: 'https://wherewindsmeetgame.org' },
           { name: 'Builds', url: 'https://wherewindsmeetgame.org/builds' },
-          { name: build.title, url: `https://wherewindsmeetgame.org/builds/${params.slug}` },
+          { name: metadata.title, url: `https://wherewindsmeetgame.org/builds/${params.slug}` },
         ]}
       />
 
@@ -217,7 +108,7 @@ export default function BuildPage({ params }: PageProps) {
           <Breadcrumbs
             items={[
               { name: 'Builds', url: '/builds' },
-              { name: build.title },
+              { name: metadata.title },
             ]}
           />
 
@@ -225,45 +116,56 @@ export default function BuildPage({ params }: PageProps) {
           <header className="mb-12">
             <div className="flex flex-wrap items-center gap-4 mb-4">
               <h1 className="font-display text-4xl md:text-5xl text-gold-primary font-bold">
-                {build.title}
+                {metadata.title}
               </h1>
               <span className={`px-4 py-1.5 rounded-full border-2 border-current ${difficultyColor} font-ui text-sm font-semibold`}>
-                {build.difficulty}
+                {metadata.difficulty}
               </span>
             </div>
 
             <p className="font-body text-lg text-text-secondary leading-relaxed mb-6">
-              {build.description}
+              {metadata.description}
             </p>
 
             <div className="flex flex-wrap items-center gap-6 text-sm text-text-muted">
-              <span><strong className="text-text-primary">Playstyle:</strong> {build.playstyle}</span>
+              <span><strong className="text-text-primary">Playstyle:</strong> {metadata.playstyle}</span>
               <span>•</span>
-              <span>By {build.author}</span>
+              <span>By {metadata.author}</span>
               <span>•</span>
-              <span>Updated: {new Date(build.dateModified).toLocaleDateString()}</span>
+              <span>Updated: {new Date(metadata.dateModified).toLocaleDateString()}</span>
             </div>
           </header>
 
           {/* Stats Overview */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            <StatCard icon={<Sword className="w-6 h-6" />} label="Damage" value={build.stats.damage} />
-            <StatCard icon={<Shield className="w-6 h-6" />} label="Defense" value={build.stats.defense} />
-            <StatCard icon={<Zap className="w-6 h-6" />} label="Mobility" value={build.stats.mobility} />
-            <StatCard icon={<Target className="w-6 h-6" />} label="Difficulty" value={build.stats.difficulty} />
+            <StatCard icon={<Sword className="w-6 h-6" />} label="Damage" value={metadata.stats.damage} />
+            <StatCard icon={<Shield className="w-6 h-6" />} label="Defense" value={metadata.stats.defense} />
+            <StatCard icon={<Zap className="w-6 h-6" />} label="Mobility" value={metadata.stats.mobility} />
+            <StatCard icon={<Target className="w-6 h-6" />} label="Difficulty" value={metadata.stats.difficulty} />
           </div>
 
-          {/* Overview */}
+          {/* Build Content */}
           <section className="mb-12">
-            <h2 className="font-display text-3xl text-gold-primary font-bold mb-4">Overview</h2>
-            <p className="font-body text-text-secondary leading-relaxed">{build.overview}</p>
+            <div className="prose prose-invert prose-gold max-w-none">
+              <div
+                className="font-body text-text-secondary leading-relaxed space-y-6
+                  [&_h2]:font-display [&_h2]:text-3xl [&_h2]:text-gold-primary [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4
+                  [&_h3]:font-display [&_h3]:text-2xl [&_h3]:text-gold-bright [&_h3]:font-bold [&_h3]:mt-8 [&_h3]:mb-3
+                  [&_ul]:space-y-2 [&_ul]:my-4
+                  [&_ol]:space-y-2 [&_ol]:my-4
+                  [&_li]:text-text-secondary
+                  [&_strong]:text-text-primary [&_strong]:font-semibold
+                  [&_p]:my-4 [&_p]:leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}
+              />
+            </div>
           </section>
 
           {/* Weapons & Skills */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <Card title="Weapons" description="" variant="compact">
               <ul className="space-y-2 mt-4">
-                {build.weapons.map((weapon, i) => (
+                {metadata.weapons.map((weapon, i) => (
                   <li key={i} className="flex items-center gap-2 text-text-secondary">
                     <Sword className="w-4 h-4 text-gold-bright flex-shrink-0" />
                     <span>{weapon}</span>
@@ -274,7 +176,7 @@ export default function BuildPage({ params }: PageProps) {
 
             <Card title="Core Skills" description="" variant="compact">
               <ul className="space-y-2 mt-4">
-                {build.skills.map((skill, i) => (
+                {metadata.skills.map((skill, i) => (
                   <li key={i} className="flex items-center gap-2 text-text-secondary">
                     <Zap className="w-4 h-4 text-blue-accent flex-shrink-0" />
                     <span>{skill}</span>
@@ -297,7 +199,7 @@ export default function BuildPage({ params }: PageProps) {
                   </tr>
                 </thead>
                 <tbody>
-                  {build.attributes.map((attr, i) => (
+                  {metadata.attributes.map((attr, i) => (
                     <tr key={i} className="border-t border-gold-dark/20">
                       <td className="px-6 py-4 font-ui text-text-primary">{attr.name}</td>
                       <td className="px-6 py-4 font-ui text-text-secondary">{attr.value}</td>
@@ -320,7 +222,7 @@ export default function BuildPage({ params }: PageProps) {
           {/* Gameplay */}
           <section className="mb-12">
             <h2 className="font-display text-3xl text-gold-primary font-bold mb-4">Gameplay Rotation</h2>
-            <p className="font-body text-text-secondary leading-relaxed">{build.gameplay}</p>
+            <p className="font-body text-text-secondary leading-relaxed">{metadata.gameplay}</p>
           </section>
 
           {/* Strengths & Weaknesses */}
@@ -331,7 +233,7 @@ export default function BuildPage({ params }: PageProps) {
                 Strengths
               </h3>
               <ul className="space-y-2">
-                {build.strengths.map((strength, i) => (
+                {metadata.strengths.map((strength, i) => (
                   <li key={i} className="flex items-start gap-2 text-text-secondary">
                     <span className="text-green-400 mt-1">✓</span>
                     <span>{strength}</span>
@@ -346,7 +248,7 @@ export default function BuildPage({ params }: PageProps) {
                 Weaknesses
               </h3>
               <ul className="space-y-2">
-                {build.weaknesses.map((weakness, i) => (
+                {metadata.weaknesses.map((weakness, i) => (
                   <li key={i} className="flex items-start gap-2 text-text-secondary">
                     <span className="text-red-400 mt-1">✗</span>
                     <span>{weakness}</span>
@@ -360,7 +262,7 @@ export default function BuildPage({ params }: PageProps) {
           <section className="mb-12">
             <h2 className="font-display text-3xl text-gold-primary font-bold mb-6">Progression Guide</h2>
             <div className="space-y-4">
-              {build.steps.map((step, i) => (
+              {metadata.steps.map((step, i) => (
                 <div key={i} className="bg-bg-card rounded-lg border border-gold-dark/30 p-6">
                   <h3 className="font-display text-xl text-gold-bright font-bold mb-3 flex items-center gap-3">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gold-primary/20 text-gold-primary text-sm font-bold">
@@ -388,7 +290,9 @@ export default function BuildPage({ params }: PageProps) {
           </div>
 
           {/* Related Builds */}
-          <RelatedContent links={build.relatedBuilds} title="Related Builds" />
+          {metadata.relatedBuilds && metadata.relatedBuilds.length > 0 && (
+            <RelatedContent links={metadata.relatedBuilds} title="Related Builds" />
+          )}
         </div>
       </div>
     </>
@@ -419,7 +323,8 @@ function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string
 
 // Generate static params
 export async function generateStaticParams() {
-  return Object.keys(buildsData).map((slug) => ({
-    slug,
+  const builds = getAllBuilds();
+  return builds.map((build) => ({
+    slug: build.slug,
   }));
 }
