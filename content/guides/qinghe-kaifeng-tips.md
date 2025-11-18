@@ -1,12 +1,11 @@
 ---
 title: "Qinghe & Kaifeng Beginner Tips: 15 Little Things the Game Never Explains"
-slug: "qinghe-kaifeng-beginner-tips"
-type: "beginner"        # beginner / region / build / warning / misc
-region: ["qinghe", "kaifeng"]
-tags: ["beginner", "tips", "qinghe", "kaifeng", "where-winds-meet"]
-summary: "Early-game tips for Qinghe and Kaifeng in Where Winds Meet. Small tricks, warnings, and quality‑of‑life advice that the game barely explains."
 description: "A beginner-friendly Where Winds Meet guide focused on Qinghe and Kaifeng. Learn about small tricks, horror content warnings, and quality-of-life tips that make your early hours easier and more fun."
-date: "2025-11-18"
+author: "WWM Guides Team"
+datePublished: "2025-11-18"
+dateModified: "2025-11-18"
+image: "/images/og-image.jpg"
+keywords: ["where winds meet", "qinghe guide", "kaifeng guide", "beginner tips", "wwm regions"]
 ---
 
 # Qinghe & Kaifeng Beginner Tips: 15 Little Things the Game Never Explains

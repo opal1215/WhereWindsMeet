@@ -1,12 +1,11 @@
 ---
 title: "Where Winds Meet Beginner Guide: Simple Tips for Your First 3 Hours"
-slug: "where-winds-meet-beginner-guide-first-3-hours"
-type: "beginner"  # beginner / region / build / warning / misc
-region: []        # e.g. ["qinghe", "kaifeng"]
-tags: ["beginner", "tips", "first-3-hours"]
-summary: "A simple Where Winds Meet beginner guide focused on your first 3 hours so you know what to do first, what to ignore, and how to enjoy the game without feeling overwhelmed."
 description: "A simple Where Winds Meet beginner guide focused on your first 3 hours. Learn what to do first, what to ignore, and how to enjoy the game without feeling overwhelmed."
-date: "2025-11-18"
+author: "WWM Guides Team"
+datePublished: "2025-11-18"
+dateModified: "2025-11-18"
+image: "/images/og-image.jpg"
+keywords: ["where winds meet", "beginner guide", "first 3 hours", "new player tips", "wwm tutorial"]
 ---
 
 # Where Winds Meet Beginner Guide: Simple Tips for Your First 3 Hours

@@ -1,14 +1,11 @@
 ---
 title: "Where Winds Meet Combat Guide for Beginners (Simple Builds & Weapon Tips)"
 description: "A practical Where Winds Meet combat overview for new players: how weapons, martial arts, Internal Arts, and defensive skills work, plus a few easy beginner builds that feel good on controller or mouse & keyboard."
-slug: "where-winds-meet-combat-guide-beginner-builds"
-date: 2025-11-18
-tags:
-  - where winds meet
-  - combat guide
-  - beginner builds
-  - weapons
-  - tips
+author: "WWM Guides Team"
+datePublished: "2025-11-18"
+dateModified: "2025-11-18"
+image: "/images/og-image.jpg"
+keywords: ["where winds meet", "combat guide", "beginner builds", "weapons guide", "martial arts", "wwm builds"]
 ---
 
 # Where Winds Meet Combat Guide for Beginners (Simple Builds & Weapon Tips)
