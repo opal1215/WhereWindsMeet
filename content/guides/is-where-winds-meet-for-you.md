@@ -17,8 +17,6 @@ If you've watched a trailer for **Where Winds Meet** and thought:
 
 > "This looks gorgeous, but what *actually* is it? MMO? Souls-like? Another Genshin?"
 
-你不是一个人。
-
 This guide isn't here to sell you the game. It's here to answer one thing, as simply as possible:
 
 > **"Is Where Winds Meet *my* kind of game?"**

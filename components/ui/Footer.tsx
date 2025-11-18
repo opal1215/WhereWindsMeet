@@ -70,42 +70,42 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/beginner-guide"
+                  href="/guides/is-where-winds-meet-for-you"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Beginner Guide
+                  Is WWM for You?
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/leveling-guide"
+                  href="/guides/first-3-hours-guide"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Leveling Guide
+                  First 3 Hours Guide
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/combat-overview"
+                  href="/guides/combat-guide-beginner-builds"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Combat Overview
+                  Combat & Builds
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/builds"
+                  href="/guides/qinghe-kaifeng-tips"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Best Builds
+                  Qinghe & Kaifeng Tips
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/tier-lists"
+                  href="/guides"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Tier Lists
+                  All Guides
                 </Link>
               </li>
             </ul>
@@ -119,76 +119,90 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/world-map"
+                  href="/codes"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Interactive Map
+                  Redemption Codes
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/tools"
+                  href="/tools/build-planner"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Tools & Calculators
+                  Build Planner
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/database"
+                  href="/tools/xp-calculator"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Database
+                  XP Calculator
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/news"
+                  href="/database/weapons"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  News & Updates
+                  Weapon Database
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/meta-report"
+                  href="/tools/drop-table"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Meta Report
+                  Drop Tables
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Legal */}
+          {/* Column 4: Community */}
           <div>
             <h3 className="font-display text-lg text-gold-primary font-bold mb-6">
-              Legal
+              Community
             </h3>
             <ul className="space-y-3 mb-6">
               <li>
-                <Link
-                  href="/privacy-policy"
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Privacy Policy
-                </Link>
+                  Twitter/X
+                </a>
               </li>
               <li>
-                <Link
-                  href="/terms-of-service"
+                <a
+                  href="https://discord.gg/wherewindsmeet"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Terms of Service
-                </Link>
+                  Discord Server
+                </a>
               </li>
               <li>
-                <Link
-                  href="/disclaimer"
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                 >
-                  Disclaimer
-                </Link>
+                  YouTube Channel
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:contact@wherewindsmeetgame.org"
+                  className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
+                >
+                  Contact Us
+                </a>
               </li>
             </ul>
             <p className="font-ui text-xs text-text-muted leading-relaxed">
