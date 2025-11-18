@@ -16,6 +16,10 @@ interface NavbarProps {
 
 const defaultLinks: NavLink[] = [
   {
+    label: 'Codes',
+    href: '/codes',
+  },
+  {
     label: 'Guides',
     href: '/beginner-guide',
     submenu: [

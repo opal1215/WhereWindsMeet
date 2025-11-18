@@ -8,6 +8,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Root
     '',
 
+    // High-Priority Pages
+    '/codes', // Redeem codes - high traffic, updated frequently
+
     // Cluster A: Getting Started & Progression
     '/beginner-guide',
     '/leveling-guide',
@@ -66,8 +69,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ].map(route => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: (route === '' ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
-    priority: route === '' ? 1.0 : route.startsWith('/beginner') ? 0.9 : 0.8,
+    changeFrequency: (route === '' ? 'weekly' : route === '/codes' ? 'daily' : 'monthly') as 'daily' | 'weekly' | 'monthly',
+    priority: route === '' ? 1.0 : route === '/codes' ? 0.95 : route.startsWith('/beginner') ? 0.9 : 0.8,
   }));
 
   // TODO: Dynamic pages (fetch from database when implemented)
