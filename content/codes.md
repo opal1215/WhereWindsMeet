@@ -1,13 +1,13 @@
 ---
-title: "Where Winds Meet Codes - Free Rewards (November 2024)"
-description: "Latest active redeem codes for Where Winds Meet. Get free Echo Jade, Coins, and exclusive rewards. Updated for international release November 2024."
-lastUpdated: "2024-11-18"
+title: "Where Winds Meet Codes - Free Rewards (November 2025)"
+description: "Latest active redeem codes for Where Winds Meet. Get free Echo Jade, Coins, and exclusive rewards. Updated for international release November 2025."
+lastUpdated: "2025-11-18"
 category: "codes"
 ---
 
-# Where Winds Meet Redeem Codes - November 2024
+# Where Winds Meet Redeem Codes - November 2025
 
-All codes listed below are **currently active** for the international version of Where Winds Meet (released November 16, 2024). Each code can be redeemed **once per account** with no server restrictions.
+All codes listed below are **currently active** for the international version of Where Winds Meet (released November 16, 2025). Each code can be redeemed **once per account** with no server restrictions.
 
 ## Active Codes (Sorted by Value)
 
@@ -85,7 +85,7 @@ Don't forget to link your account and watch Where Winds Meet streams on Twitch t
 - ✅ Each code can be redeemed **once per account**
 - ✅ Codes are case-sensitive - enter them exactly as shown
 - ✅ New codes are added regularly - bookmark this page!
-- 🕒 Last updated: **November 18, 2024**
+- 🕒 Last updated: **November 18, 2025**
 
 ## What is Echo Jade?
 
