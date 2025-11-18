@@ -213,13 +213,40 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gold-dark/30">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-ui text-sm text-text-muted">
-              © {currentYear} WhereWindsMeetGame.org. All rights reserved.
-            </p>
-            <p className="font-ui text-sm text-text-muted">
-              Built with ❤️ for the Wuxia community
-            </p>
+          <div className="flex flex-col gap-6">
+            {/* Legal Links */}
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              <Link
+                href="/privacy-policy"
+                className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-gold-dark/50">•</span>
+              <Link
+                href="/terms-of-service"
+                className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <span className="text-gold-dark/50">•</span>
+              <Link
+                href="/disclaimer"
+                className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
+              >
+                Disclaimer
+              </Link>
+            </div>
+
+            {/* Copyright and Attribution */}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="font-ui text-sm text-text-muted">
+                © {currentYear} WhereWindsMeetGame.org. All rights reserved.
+              </p>
+              <p className="font-ui text-sm text-text-muted">
+                Built with ❤️ for the Wuxia community
+              </p>
+            </div>
           </div>
         </div>
       </div>
