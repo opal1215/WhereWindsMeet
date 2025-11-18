@@ -29,28 +29,28 @@ export default function HomePage() {
       {/* Redemption Codes CTA Banner - Fixed Top Right */}
       <a
         href="/codes"
-        className="fixed top-24 right-10 z-40 group w-72 bg-gold-primary/10 backdrop-blur-md border-2 border-gold-primary/40 rounded-xl overflow-hidden hover:border-gold-primary/70 hover:bg-gold-primary/15 transition-all duration-300 hidden lg:block"
+        className="fixed top-24 right-10 z-40 group w-52 bg-gold-primary/10 backdrop-blur-md border-2 border-gold-primary/40 rounded-xl overflow-hidden hover:border-gold-primary/70 hover:bg-gold-primary/15 transition-all duration-300 hidden lg:block"
       >
         {/* Content */}
-        <div className="p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <Gift className="w-5 h-5 text-gold-primary flex-shrink-0" />
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-gold-primary/20 border border-gold-primary/40 rounded-full">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold-primary animate-pulse"></div>
-              <span className="text-xs font-bold text-gold-primary uppercase tracking-wide">
+        <div className="p-4">
+          <div className="flex items-center gap-2 mb-1.5">
+            <Gift className="w-4 h-4 text-gold-primary flex-shrink-0" />
+            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-gold-primary/20 border border-gold-primary/40 rounded-full">
+              <div className="w-1 h-1 rounded-full bg-gold-primary animate-pulse"></div>
+              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-wide">
                 Latest
               </span>
             </div>
           </div>
-          <h3 className="font-bold text-text-primary mb-1 text-sm">
+          <h3 className="font-bold text-text-primary mb-0.5 text-xs">
             Free Redemption Codes
           </h3>
-          <p className="text-xs text-text-secondary mb-3">
-            Echo Jade, Coins & exclusive rewards
+          <p className="text-[10px] text-text-secondary mb-2 leading-tight">
+            Echo Jade, Coins & rewards
           </p>
-          <div className="flex items-center gap-2 text-gold-bright text-sm font-semibold group-hover:text-gold-primary transition-colors">
+          <div className="flex items-center gap-1.5 text-gold-bright text-xs font-semibold group-hover:text-gold-primary transition-colors">
             <span>Claim Now</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
           </div>
         </div>
       </a>

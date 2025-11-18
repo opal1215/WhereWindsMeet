@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '../ui/Button';
+import Link from 'next/link';
 
 interface HeroProps {
   title: string;
@@ -80,24 +80,22 @@ export const Hero: React.FC<HeroProps> = ({
       {/* CTAs - Fixed at Bottom */}
       {(primaryCTA || secondaryCTA) && (
         <div className="absolute bottom-20 left-0 right-0 flex justify-center">
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-8 items-center mt-12">
             {primaryCTA && (
-              <Button
+              <Link
                 href={primaryCTA.href}
-                variant="primary"
-                size="md"
+                className="bg-white/10 backdrop-blur-xl border border-white/30 text-white px-10 py-4 text-lg rounded-lg tracking-wide transition-all duration-400 hover:bg-white/15 hover:border-gold-primary/50 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
               >
                 {primaryCTA.label}
-              </Button>
+              </Link>
             )}
             {secondaryCTA && (
-              <Button
+              <Link
                 href={secondaryCTA.href}
-                variant="outline"
-                size="md"
+                className="text-white/80 text-base underline underline-offset-4 decoration-gold-primary/50 px-6 py-4 transition-all duration-300 hover:text-gold-primary hover:decoration-gold-primary"
               >
                 {secondaryCTA.label}
-              </Button>
+              </Link>
             )}
           </div>
         </div>
