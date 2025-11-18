@@ -27,28 +27,29 @@ export const Hero: React.FC<HeroProps> = ({
   variant = 'default',
   goldSubtitle = false,
 }) => {
-  const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
+  const heightClass = variant === 'default' ? 'h-screen' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-center justify-center`}>
+    <section className={`relative ${heightClass} flex flex-col items-center justify-center`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
           src={backgroundImage}
           alt={title}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           sizes="100vw"
+          quality={95}
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary/85 -z-10" />
+      {/* Light Overlay - barely visible */}
+      <div className="absolute inset-0 bg-black/20 -z-10" />
 
-      {/* Content */}
-      <div className="max-w-4xl px-5 md:px-10 text-center">
-        {/* Title */}
+      {/* Content Container - positioned higher */}
+      <div className="max-w-4xl px-5 md:px-10 text-center mt-[-10vh]">
+        {/* Title with text shadow */}
         <h1
           className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5 ${
             variant === 'default'
@@ -58,21 +59,25 @@ export const Hero: React.FC<HeroProps> = ({
           style={{
             lineHeight: '1.1',
             letterSpacing: '0.05em',
+            textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
           }}
         >
           {title}
         </h1>
 
-        {/* Subtitle */}
+        {/* Subtitle with text shadow */}
         {subtitle && (
           <p
             className={`font-body mb-8 ${
               goldSubtitle
                 ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
-                : 'text-text-primary/90'
+                : 'text-white'
             } ${
               variant === 'default' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'
             }`}
+            style={{
+              textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+            }}
           >
             {subtitle}
           </p>
@@ -80,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* CTAs */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center mt-8">
             {primaryCTA && (
               <Button
                 href={primaryCTA.href}
