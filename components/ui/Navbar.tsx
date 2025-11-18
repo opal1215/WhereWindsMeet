@@ -86,10 +86,10 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
               <div key={link.href} className="relative group">
                 <Link
                   href={link.href}
-                  className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors flex items-center gap-1"
+                  className="font-ui text-base text-text-secondary hover:text-gold-bright transition-colors flex items-center gap-1 tracking-wide"
                 >
                   {link.label}
-                  {link.submenu && <ChevronDown className="w-3 h-3" />}
+                  {link.submenu && <ChevronDown className="w-4 h-4" />}
                 </Link>
 
                 {/* Desktop Submenu */}
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
                         <Link
                           key={sublink.href}
                           href={sublink.href}
-                          className="block px-4 py-2 font-ui text-sm text-text-secondary hover:text-gold-bright hover:bg-gold-primary/10 transition-colors"
+                          className="block px-4 py-3 font-ui text-base text-text-secondary hover:text-gold-bright hover:bg-gold-primary/10 transition-colors"
                         >
                           {sublink.label}
                         </Link>
