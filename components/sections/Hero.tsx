@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-center justify-center`}>
+    <section className={`relative ${heightClass} flex items-start justify-center pt-20`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary/85 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/20 to-bg-primary/70 -z-10" />
 
       {/* Content */}
       <div className="max-w-4xl px-5 md:px-10 text-center">
@@ -52,16 +52,15 @@ export const Hero: React.FC<HeroProps> = ({
         <h1
           className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5 ${
             variant === 'default'
-              ? 'text-5xl md:text-7xl lg:text-9xl'
+              ? 'text-4xl md:text-5xl lg:text-6xl'
               : 'text-4xl md:text-5xl lg:text-7xl'
           }`}
           style={{
-            lineHeight: '1.1',
+            lineHeight: '1.2',
             letterSpacing: '0.05em',
           }}
-        >
-          {title}
-        </h1>
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
 
         {/* Subtitle */}
         {subtitle && (
