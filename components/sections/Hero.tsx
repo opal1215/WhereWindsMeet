@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-end justify-center pb-20`}>
+    <section className={`relative ${heightClass} flex items-start justify-center pt-16`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -43,8 +43,8 @@ export const Hero: React.FC<HeroProps> = ({
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary/85 -z-10" />
+      {/* Subtle Gradient Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent -z-10" />
 
       {/* Content */}
       <div className="max-w-4xl px-5 md:px-10 text-center">
