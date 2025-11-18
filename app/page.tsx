@@ -53,7 +53,7 @@ export default function HomePage() {
                     Free Redemption Codes Available
                   </h2>
                   <p className="text-base md:text-lg text-text-secondary">
-                    Get free Echo Jade, Coins, and exclusive rewards. Updated daily for November 2024.
+                    Get free Echo Jade, Coins, and exclusive rewards. Updated daily for November 2025.
                   </p>
                 </div>
               </div>

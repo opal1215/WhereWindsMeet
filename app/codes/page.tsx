@@ -7,28 +7,28 @@ import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { FAQ } from '@/components/ui/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Where Winds Meet Codes - Free Echo Jade & Rewards (November 2024)',
-  description: 'Get free Echo Jade, Coins, and exclusive rewards with active Where Winds Meet redeem codes. Updated daily for the international version released November 2024.',
+  title: 'Where Winds Meet Codes - Free Echo Jade & Rewards (November 2025)',
+  description: 'Get free Echo Jade, Coins, and exclusive rewards with active Where Winds Meet redeem codes. Updated daily for the international version released November 2025.',
   keywords: [
     'where winds meet codes',
     'wwm redeem codes',
     'where winds meet free rewards',
     'wwm echo jade free',
-    'where winds meet codes november 2024',
+    'where winds meet codes november 2025',
     'wwm promo codes',
     'where winds meet gift codes',
     'wwm free echo jade',
   ],
   openGraph: {
-    title: 'Where Winds Meet Codes - Free Echo Jade & Rewards (November 2024)',
+    title: 'Where Winds Meet Codes - Free Echo Jade & Rewards (November 2025)',
     description: 'Get free Echo Jade, Coins, and exclusive rewards with active Where Winds Meet redeem codes. Updated daily.',
     type: 'article',
-    publishedTime: '2024-11-18T00:00:00Z',
-    modifiedTime: '2024-11-18T00:00:00Z',
+    publishedTime: '2025-11-18T00:00:00Z',
+    modifiedTime: '2025-11-18T00:00:00Z',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Where Winds Meet Codes - Free Rewards (Nov 2024)',
+    title: 'Where Winds Meet Codes - Free Rewards (Nov 2025)',
     description: 'Active redeem codes for Where Winds Meet. Get free Echo Jade and exclusive items!',
   },
   alternates: {
@@ -83,7 +83,7 @@ const faqItems = [
   },
   {
     question: 'Are these codes still working?',
-    answer: 'Yes! All codes listed on this page are currently active as of November 18, 2024. We update this page regularly to remove expired codes.',
+    answer: 'Yes! All codes listed on this page are currently active as of November 18, 2025. We update this page regularly to remove expired codes.',
   },
   {
     question: 'Can I use the same code multiple times?',
@@ -118,10 +118,10 @@ export default function CodesPage() {
       {/* Schema Markup */}
       <BreadcrumbSchema items={breadcrumbSchemaItems} />
       <ArticleSchema
-        headline="Where Winds Meet Codes - Free Echo Jade & Rewards (November 2024)"
+        headline="Where Winds Meet Codes - Free Echo Jade & Rewards (November 2025)"
         description="Complete list of active redeem codes for Where Winds Meet with free Echo Jade, Coins, and exclusive rewards."
-        datePublished="2024-11-18T00:00:00Z"
-        dateModified="2024-11-18T00:00:00Z"
+        datePublished="2025-11-18T00:00:00Z"
+        dateModified="2025-11-18T00:00:00Z"
         author="WhereWindsMeet.com Team"
         image="https://wherewindsmeetgame.org/images/og-image.jpg"
         url="https://wherewindsmeetgame.org/codes"
@@ -143,12 +143,12 @@ export default function CodesPage() {
           </h1>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             Get free <strong className="text-gold-primary">Echo Jade</strong>, Coins, and exclusive rewards.
-            All codes are active for the international version released November 16, 2024.
+            All codes are active for the international version released November 16, 2025.
           </p>
           <div className="flex items-center justify-center gap-4 mt-6 text-text-muted text-sm">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>Updated: November 18, 2024</span>
+              <span>Updated: November 18, 2025</span>
             </div>
           </div>
         </header>
