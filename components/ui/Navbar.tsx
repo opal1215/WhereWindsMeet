@@ -67,15 +67,21 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-gold-primary/20">
-      <div className="max-w-[1400px] mx-auto px-5 py-5">
-        <div className="flex items-center justify-between">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: 'rgba(0, 20, 40, 0.85)',
+        backdropFilter: 'blur(10px)',
+        height: '55px',
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto px-5 flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center font-display font-black text-bg-primary text-xl">
+            <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center font-display font-black text-bg-primary text-xl shadow-lg">
               W
             </div>
-            <span className="font-display text-xl text-gold-primary font-bold hidden md:block group-hover:text-gold-bright transition-colors">
+            <span className="font-display text-xl font-bold hidden md:block group-hover:text-gold-bright transition-colors" style={{ color: 'rgba(255, 255, 255, 0.9)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               Where Winds Meet
             </span>
           </Link>
@@ -86,7 +92,8 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
               <div key={link.href} className="relative group">
                 <Link
                   href={link.href}
-                  className="font-ui text-base text-text-secondary hover:text-gold-bright transition-colors flex items-center gap-1"
+                  className="font-ui text-base hover:text-gold-bright transition-colors flex items-center gap-1"
+                  style={{ color: 'rgba(255, 255, 255, 0.9)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontSize: '0.95rem' }}
                 >
                   {link.label}
                   {link.submenu && <ChevronDown className="w-4 h-4" />}
@@ -115,23 +122,24 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden w-11 h-11 flex items-center justify-center text-gold-primary hover:text-gold-bright transition-colors"
+            className="lg:hidden w-11 h-11 flex items-center justify-center hover:text-gold-bright transition-colors"
             aria-label="Toggle menu"
+            style={{ color: 'rgba(255, 255, 255, 0.9)', filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8))' }}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-        </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-5 pt-5 border-t border-gold-dark/30">
+          <div className="lg:hidden absolute top-full left-0 right-0 mt-0 pt-5 border-t border-gold-dark/30 bg-bg-primary/95 backdrop-blur-md p-4">
             <div className="flex flex-col gap-4">
               {links.map((link) => (
                 <div key={link.href}>
                   <div className="flex items-center justify-between">
                     <Link
                       href={link.href}
-                      className="font-ui text-base text-text-secondary hover:text-gold-bright transition-colors flex-1"
+                      className="font-ui text-base hover:text-gold-bright transition-colors flex-1"
+                      style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.95rem' }}
                       onClick={() => !link.submenu && setIsMobileMenuOpen(false)}
                     >
                       {link.label}
@@ -157,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
                         <Link
                           key={sublink.href}
                           href={sublink.href}
-                          className="font-ui text-sm text-text-muted hover:text-gold-bright transition-colors"
+                          className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {sublink.label}

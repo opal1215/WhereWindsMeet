@@ -27,81 +27,107 @@ export const Hero: React.FC<HeroProps> = ({
   variant = 'default',
   goldSubtitle = false,
 }) => {
-  const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
+  const heightClass = variant === 'default' ? 'h-screen' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-center justify-center`}>
+    <section className={`relative ${heightClass}`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
           src={backgroundImage}
           alt={title}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           sizes="100vw"
+          quality={95}
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary/85 -z-10" />
+      {/* Very Light Overlay - almost invisible */}
+      <div className="absolute inset-0 bg-black/15 -z-10" />
 
-      {/* Content */}
-      <div className="max-w-4xl px-5 md:px-10 text-center">
-        {/* Title */}
-        <h1
-          className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5 ${
-            variant === 'default'
-              ? 'text-5xl md:text-7xl lg:text-9xl'
-              : 'text-4xl md:text-5xl lg:text-7xl'
-          }`}
+      {/* Title - Two lines with absolute positioning */}
+      <div
+        className="absolute left-1/2 text-center w-full px-5 md:px-10"
+        style={{
+          top: '140px',
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <div
+          className="font-display font-black"
           style={{
-            lineHeight: '1.1',
+            fontSize: '4.5rem',
+            fontWeight: 800,
+            color: '#FFD700',
+            lineHeight: '1',
             letterSpacing: '0.05em',
+            marginBottom: '10px',
+            textShadow: '0 0 30px rgba(255, 215, 0, 0.6), 3px 3px 10px rgba(0, 0, 0, 0.8)',
           }}
         >
-          {title}
-        </h1>
+          Find Your Way
+        </div>
+        <div
+          className="font-display font-black"
+          style={{
+            fontSize: '4rem',
+            fontWeight: 800,
+            color: '#FFD700',
+            lineHeight: '1',
+            letterSpacing: '0.05em',
+            textShadow: '0 0 30px rgba(255, 215, 0, 0.6), 3px 3px 10px rgba(0, 0, 0, 0.8)',
+          }}
+        >
+          Through the Wuxia Winds
+        </div>
+      </div>
 
-        {/* Subtitle */}
-        {subtitle && (
+      {/* Subtitle - absolute positioning */}
+      {subtitle && (
+        <div
+          className="absolute left-1/2 text-center w-full px-5 md:px-10"
+          style={{
+            top: '380px',
+            transform: 'translateX(-50%)',
+          }}
+        >
           <p
-            className={`font-body mb-8 ${
-              goldSubtitle
-                ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
-                : 'text-text-primary/90'
-            } ${
-              variant === 'default' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'
-            }`}
+            className="font-body text-white"
+            style={{
+              fontSize: '1rem',
+              textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+            }}
           >
             {subtitle}
           </p>
-        )}
+        </div>
+      )}
 
-        {/* CTAs */}
-        {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            {primaryCTA && (
-              <Button
-                href={primaryCTA.href}
-                variant="primary"
-                size={variant === 'default' ? 'lg' : 'md'}
-              >
-                {primaryCTA.label}
-              </Button>
-            )}
-            {secondaryCTA && (
-              <Button
-                href={secondaryCTA.href}
-                variant="outline"
-                size={variant === 'default' ? 'lg' : 'md'}
-              >
-                {secondaryCTA.label}
-              </Button>
-            )}
-          </div>
-        )}
-      </div>
+      {/* CTAs */}
+      {(primaryCTA || secondaryCTA) && (
+        <div className="flex flex-col sm:flex-row gap-5 justify-center mt-8">
+          {primaryCTA && (
+            <Button
+              href={primaryCTA.href}
+              variant="primary"
+              size={variant === 'default' ? 'lg' : 'md'}
+            >
+              {primaryCTA.label}
+            </Button>
+          )}
+          {secondaryCTA && (
+            <Button
+              href={secondaryCTA.href}
+              variant="outline"
+              size={variant === 'default' ? 'lg' : 'md'}
+            >
+              {secondaryCTA.label}
+            </Button>
+          )}
+        </div>
+      )}
 
       {/* Scroll Indicator (only for default variant) */}
       {variant === 'default' && (

@@ -14,7 +14,7 @@ export default function HomePage() {
       <Hero
         title="Find Your Way Through the Wuxia Winds"
         subtitle="Beginner tips, builds, maps and resources for PS5 & PC players."
-        goldSubtitle={true}
+        goldSubtitle={false}
         backgroundImage="/images/hero-bg.webp"
         primaryCTA={{
           label: 'Start Here',
