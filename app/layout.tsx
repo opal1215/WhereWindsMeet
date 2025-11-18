@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { Footer } from '@/components/ui/Footer';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -91,28 +91,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-
-        {/* Google Analytics - Replace G-XXXXXXXXXX with actual tracking ID */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
       </head>
       <body className="antialiased">
+        {/* Google Analytics 4 - Replace with your GA4 Measurement ID */}
+        <GoogleAnalytics measurementId="G-XXXXXXXXXX" />
+
         <Navbar />
         <main>{children}</main>
         <Footer />
