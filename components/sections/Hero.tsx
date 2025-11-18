@@ -84,7 +84,8 @@ export const Hero: React.FC<HeroProps> = ({
             {primaryCTA && (
               <Link
                 href={primaryCTA.href}
-                className="bg-white/10 backdrop-blur-xl border border-white/30 text-white px-10 py-4 text-lg rounded-lg tracking-wide transition-all duration-400 hover:bg-white/15 hover:border-gold-primary/50 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
+                className="bg-white/[0.08] backdrop-blur-[20px] border-[1.5px] border-white/25 text-white px-8 py-3.5 text-base font-normal rounded-3xl transition-all duration-400 hover:px-9 hover:-translate-y-0.5 hover:border-gold-primary/40 hover:shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
+                style={{ letterSpacing: '1.5px' }}
               >
                 {primaryCTA.label}
               </Link>
@@ -92,7 +93,8 @@ export const Hero: React.FC<HeroProps> = ({
             {secondaryCTA && (
               <Link
                 href={secondaryCTA.href}
-                className="text-white/80 text-base underline underline-offset-4 decoration-gold-primary/50 px-6 py-4 transition-all duration-300 hover:text-gold-primary hover:decoration-gold-primary"
+                className="bg-transparent border-none text-white/75 text-[15px] font-light px-6 py-3.5 underline decoration-gold-primary/30 underline-offset-[6px] decoration-1 transition-all duration-300 hover:text-gold-primary hover:decoration-gold-primary hover:-translate-y-px"
+                style={{ letterSpacing: '1.5px' }}
               >
                 {secondaryCTA.label}
               </Link>
