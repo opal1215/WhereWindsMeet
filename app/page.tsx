@@ -27,8 +27,8 @@ export default function HomePage() {
       />
 
       {/* Redemption Codes CTA Banner */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-5 py-16 md:py-20">
+      <section className="relative overflow-hidden -mt-12">
+        <div className="max-w-[1400px] mx-auto px-5 py-8">
           <a
             href="/codes"
             className="group block relative bg-gradient-to-r from-gold-dark/20 via-gold-primary/30 to-gold-dark/20 border-2 border-gold-primary/40 rounded-2xl overflow-hidden hover:border-gold-primary/60 transition-all duration-300"

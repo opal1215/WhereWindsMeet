@@ -27,10 +27,10 @@ export const Hero: React.FC<HeroProps> = ({
   variant = 'default',
   goldSubtitle = false,
 }) => {
-  const heightClass = variant === 'default' ? 'h-[70vh] min-h-[500px]' : 'h-[60vh] min-h-[400px]';
+  const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-start justify-center pt-16`}>
+    <section className={`relative ${heightClass} flex items-end justify-center pb-20`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
