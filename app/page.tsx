@@ -12,7 +12,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <Hero
-        title="Find Your Way Through the Wuxia Winds"
+        title="Find Your Way<br/>Through the Wuxia Winds"
         subtitle="Beginner tips, builds, maps and resources for PS5 & PC players."
         goldSubtitle={true}
         backgroundImage="/images/hero-bg.webp"

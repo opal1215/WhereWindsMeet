@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-gold-primary/20">
-      <div className="max-w-[1400px] mx-auto px-5 py-5">
+      <div className="max-w-[1400px] mx-auto px-5 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
