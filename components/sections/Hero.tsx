@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-end justify-center pb-20`}>
+    <section className={`relative ${heightClass}`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -46,41 +46,45 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Subtle Gradient Overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent -z-10" />
 
-      {/* Content */}
-      <div className="max-w-4xl px-5 md:px-10 text-center">
-        {/* Title */}
-        <h1
-          className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-3 ${
-            variant === 'default'
-              ? 'text-3xl md:text-4xl lg:text-5xl'
-              : 'text-4xl md:text-5xl lg:text-7xl'
-          }`}
-          style={{
-            lineHeight: '1.2',
-            letterSpacing: '0.02em',
-          }}
-        >
-          {title}
-        </h1>
-
-        {/* Subtitle */}
-        {subtitle && (
-          <p
-            className={`font-body mb-6 ${
-              goldSubtitle
-                ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
-                : 'text-text-primary/90'
-            } ${
-              variant === 'default' ? 'text-base md:text-lg' : 'text-lg md:text-xl'
+      {/* Title and Subtitle - Fixed at Top */}
+      <div className="absolute top-16 left-0 right-0 flex justify-center">
+        <div className="max-w-4xl px-5 md:px-10 text-center">
+          {/* Title */}
+          <h1
+            className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-3 ${
+              variant === 'default'
+                ? 'text-3xl md:text-4xl lg:text-5xl'
+                : 'text-4xl md:text-5xl lg:text-7xl'
             }`}
+            style={{
+              lineHeight: '1.2',
+              letterSpacing: '0.02em',
+            }}
           >
-            {subtitle}
-          </p>
-        )}
+            {title}
+          </h1>
 
-        {/* CTAs */}
-        {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          {/* Subtitle */}
+          {subtitle && (
+            <p
+              className={`font-body ${
+                goldSubtitle
+                  ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
+                  : 'text-text-primary/90'
+              } ${
+                variant === 'default' ? 'text-base md:text-lg' : 'text-lg md:text-xl'
+              }`}
+            >
+              {subtitle}
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* CTAs - Fixed at Bottom */}
+      {(primaryCTA || secondaryCTA) && (
+        <div className="absolute bottom-20 left-0 right-0 flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-3">
             {primaryCTA && (
               <Button
                 href={primaryCTA.href}
@@ -100,8 +104,8 @@ export const Hero: React.FC<HeroProps> = ({
               </Button>
             )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 };
