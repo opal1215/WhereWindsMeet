@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({
   variant = 'default',
   goldSubtitle = false,
 }) => {
-  const heightClass = variant === 'default' ? 'h-[40vh] min-h-[320px]' : 'h-[60vh] min-h-[400px]';
+  const heightClass = variant === 'default' ? 'h-[70vh] min-h-[500px]' : 'h-[60vh] min-h-[400px]';
 
   return (
     <section className={`relative ${heightClass} flex items-start justify-center pt-16`}>
