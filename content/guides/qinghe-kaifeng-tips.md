@@ -14,11 +14,11 @@ date: "2025-11-18"
 Qinghe and Kaifeng are beautiful, dense, and sometimes a little mean to new players.  
 This isn’t a full quest walkthrough. It’s a list of **small things** that make your early hours in these two regions **less painful and more fun**.
 
-If you’re still wondering whether this game is for you, start here first:  
-[Is Where Winds Meet for You? A Simple Breakdown for Souls & Genshin Fans](/beginner/is-where-winds-meet-for-you).
+If you're still wondering whether this game is for you, start here first:
+[Is Where Winds Meet for You? A Simple Breakdown for Souls & Genshin Fans](/guides/is-where-winds-meet-for-you).
 
-If you’ve already decided to dive in and just want a smooth start, you can also read:  
-[Where Winds Meet Beginner Guide: Simple Tips for Your First 3 Hours](/beginner/where-winds-meet-beginner-guide-first-3-hours).
+If you've already decided to dive in and just want a smooth start, you can also read:
+[Where Winds Meet Beginner Guide: Simple Tips for Your First 3 Hours](/guides/first-3-hours-guide).
 
 Use this article after that one, when you’re ready to explore Qinghe and Kaifeng a bit more freely.
 
