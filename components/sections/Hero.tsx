@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex flex-col items-center justify-center`}>
+    <section className={`relative ${heightClass}`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -47,17 +47,14 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Light Overlay - barely visible */}
       <div className="absolute inset-0 bg-black/20 -z-10" />
 
-      {/* Content Container - positioned higher */}
-      <div className="max-w-4xl px-5 md:px-10 text-center mt-[-10vh]">
-        {/* Title with text shadow */}
+      {/* Content Container - positioned at top third */}
+      <div className="max-w-4xl px-5 md:px-10 text-center mx-auto" style={{ paddingTop: '25vh' }}>
+        {/* Title with correct sizing */}
         <h1
-          className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5 ${
-            variant === 'default'
-              ? 'text-5xl md:text-7xl lg:text-9xl'
-              : 'text-4xl md:text-5xl lg:text-7xl'
-          }`}
+          className="font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5"
           style={{
-            lineHeight: '1.1',
+            fontSize: variant === 'default' ? '3.5rem' : '2.5rem',
+            lineHeight: '1.2',
             letterSpacing: '0.05em',
             textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
           }}
@@ -65,17 +62,17 @@ export const Hero: React.FC<HeroProps> = ({
           {title}
         </h1>
 
-        {/* Subtitle with text shadow */}
+        {/* Subtitle with correct sizing */}
         {subtitle && (
           <p
-            className={`font-body mb-8 ${
+            className={`font-body ${
               goldSubtitle
                 ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
                 : 'text-white'
-            } ${
-              variant === 'default' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'
             }`}
             style={{
+              fontSize: '1.2rem',
+              marginBottom: '3rem',
               textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
             }}
           >

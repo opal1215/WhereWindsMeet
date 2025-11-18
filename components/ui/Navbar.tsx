@@ -67,15 +67,21 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
-      <div className="max-w-[1400px] mx-auto px-5 py-5">
-        <div className="flex items-center justify-between">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: 'rgba(0, 0, 0, 0.3)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto px-5 flex items-center justify-between" style={{ height: '60px' }}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center font-display font-black text-bg-primary text-xl shadow-lg">
               W
             </div>
-            <span className="font-display text-xl text-white font-bold hidden md:block group-hover:text-gold-bright transition-colors" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <span className="font-display text-xl font-bold hidden md:block group-hover:text-gold-bright transition-colors" style={{ color: 'rgba(255, 255, 255, 0.9)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               Where Winds Meet
             </span>
           </Link>
@@ -86,8 +92,8 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
               <div key={link.href} className="relative group">
                 <Link
                   href={link.href}
-                  className="font-ui text-base text-white hover:text-gold-bright transition-colors flex items-center gap-1"
-                  style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
+                  className="font-ui text-base hover:text-gold-bright transition-colors flex items-center gap-1"
+                  style={{ color: 'rgba(255, 255, 255, 0.9)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
                 >
                   {link.label}
                   {link.submenu && <ChevronDown className="w-4 h-4" />}
@@ -116,24 +122,24 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-gold-bright transition-colors"
+            className="lg:hidden w-11 h-11 flex items-center justify-center hover:text-gold-bright transition-colors"
             aria-label="Toggle menu"
-            style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8))' }}
+            style={{ color: 'rgba(255, 255, 255, 0.9)', filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8))' }}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-        </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-5 pt-5 border-t border-gold-dark/30 bg-bg-primary/95 backdrop-blur-md rounded-lg p-4 -mx-5">
+          <div className="lg:hidden absolute top-full left-0 right-0 mt-0 pt-5 border-t border-gold-dark/30 bg-bg-primary/95 backdrop-blur-md p-4">
             <div className="flex flex-col gap-4">
               {links.map((link) => (
                 <div key={link.href}>
                   <div className="flex items-center justify-between">
                     <Link
                       href={link.href}
-                      className="font-ui text-base text-white hover:text-gold-bright transition-colors flex-1"
+                      className="font-ui text-base hover:text-gold-bright transition-colors flex-1"
+                      style={{ color: 'rgba(255, 255, 255, 0.9)' }}
                       onClick={() => !link.submenu && setIsMobileMenuOpen(false)}
                     >
                       {link.label}
