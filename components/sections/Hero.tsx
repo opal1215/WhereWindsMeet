@@ -21,7 +21,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
-  backgroundImage = '/images/hero-bg.jpg',
+  backgroundImage = '/images/hero-bg.webp',
   primaryCTA,
   secondaryCTA,
   variant = 'default',
