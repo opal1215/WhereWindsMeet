@@ -1,12 +1,11 @@
 ---
 title: "Is Where Winds Meet for You? A Simple Breakdown for Souls & Genshin Fans"
 description: "Honest breakdown of Where Winds Meet for Souls players, Genshin fans, and MMO veterans. Learn what the game is, what it isn't, and whether it matches your playstyle before downloading."
-slug: "is-where-winds-meet-for-you"
-type: "beginner"
-region: []
-tags: ["beginner", "overview", "souls-like", "genshin", "mmo", "where-winds-meet"]
-summary: "An honest breakdown of Where Winds Meet for Souls players, Genshin fans, and MMO veterans. What the game is, what it isn't, and whether it matches your playstyle."
-date: "2025-11-18"
+author: "WWM Guides Team"
+datePublished: "2025-11-18"
+dateModified: "2025-11-18"
+image: "/images/og-image.jpg"
+keywords: ["where winds meet", "wwm guide", "souls-like", "genshin impact", "mmo", "beginner guide"]
 ---
 
 # Is Where Winds Meet for You?
