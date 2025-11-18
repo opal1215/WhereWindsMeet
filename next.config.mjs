@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Image Optimization
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -11,12 +12,35 @@ const nextConfig = {
         hostname: '**.wherewindsmeetgame.org',
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+
+  // Performance Optimization
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+
+  // Experimental Features
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['lucide-react'],
+  },
+
+  // Compiler Options
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+
+  // Module Optimization
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+    },
   },
 }
 
