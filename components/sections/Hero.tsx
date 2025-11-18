@@ -51,14 +51,14 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="max-w-4xl px-5 md:px-10 text-center">
           {/* Title */}
           <h1
-            className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-3 ${
+            className={`font-display font-bold text-white mb-4 ${
               variant === 'default'
                 ? 'text-3xl md:text-4xl lg:text-5xl'
                 : 'text-4xl md:text-5xl lg:text-7xl'
             }`}
             style={{
               lineHeight: '1.2',
-              letterSpacing: '0.02em',
+              letterSpacing: '0.01em',
             }}
           >
             {title}
@@ -67,11 +67,7 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Subtitle */}
           {subtitle && (
             <p
-              className={`font-body ${
-                goldSubtitle
-                  ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
-                  : 'text-text-primary/90'
-              } ${
+              className={`font-body text-white/80 ${
                 variant === 'default' ? 'text-base md:text-lg' : 'text-lg md:text-xl'
               }`}
             >

@@ -40,7 +40,7 @@ const config: Config = {
       },
       spacing: {
         'section-y': '120px',
-        'section-y-mobile': '60px',
+        'section-y-mobile': '80px',
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(135deg, #F0D87C 0%, #D4AF37 100%)',

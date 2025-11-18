@@ -23,14 +23,14 @@ export const Card: React.FC<CardProps> = ({
   className = '',
   children,
 }) => {
-  // Base styles
-  const baseStyles = 'bg-bg-card border border-gold-dark/30 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-gold-primary hover:shadow-[0_12px_32px_rgba(212,175,55,0.2)]';
+  // Base styles - Refined for reduced visual weight
+  const baseStyles = 'bg-white/5 border border-white/10 rounded-2xl transition-all duration-300 hover:bg-white/8 hover:border-gold-primary/50 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.15)]';
 
-  // Variant styles
+  // Variant styles - Unified padding
   const variantStyles = {
-    default: 'p-10',
+    default: 'p-8',
     compact: 'p-6',
-    featured: 'p-12 border-2 border-gold-primary/50',
+    featured: 'p-10 border-2 border-gold-primary/30',
   };
 
   const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${className}`;

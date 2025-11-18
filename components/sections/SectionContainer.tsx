@@ -38,14 +38,13 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
   return (
     <section
       id={id}
-      className={`py-section-y md:py-section-y px-5 ${bgColors[background]} relative overflow-hidden ${className}`}
+      className={`py-section-y-mobile md:py-section-y px-5 md:px-20 ${bgColors[background]} relative overflow-hidden ${className}`}
     >
       <div className={`${widthClasses[containerWidth]} mx-auto`}>
         {/* Section Header */}
         {(title || subtitle) && (
-          <div className="text-center mb-16">
-            {/* Decorative Line (optional) */}
-            <div className="w-24 h-0.5 bg-gradient-gold mx-auto mb-6" />
+          <div className="text-center mb-20">
+            {/* Decorative Line removed for cleaner design */}
 
             {/* Title */}
             {title && (
