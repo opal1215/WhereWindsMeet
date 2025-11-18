@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex flex-col justify-start`} style={{ paddingTop: '80px' }}>
+    <section className={`relative ${heightClass}`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -47,65 +47,87 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Very Light Overlay - almost invisible */}
       <div className="absolute inset-0 bg-black/15 -z-10" />
 
-      {/* Content Container - close to navbar */}
-      <div className="max-w-4xl px-5 md:px-10 text-center mx-auto" style={{ marginTop: '20px' }}>
-        {/* Title with bright gold color and glow */}
-        <h1
-          className="font-display font-black mb-5"
+      {/* Title - Two lines with absolute positioning */}
+      <div
+        className="absolute left-1/2 text-center w-full px-5 md:px-10"
+        style={{
+          top: '140px',
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <div
+          className="font-display font-black"
           style={{
-            color: '#FDB913',
-            fontSize: variant === 'default' ? '4rem' : '2.5rem',
+            fontSize: '4.5rem',
             fontWeight: 800,
+            color: '#FFD700',
             lineHeight: '1',
-            letterSpacing: '-0.02em',
-            textShadow: '0 0 20px rgba(253, 185, 19, 0.5), 2px 2px 8px rgba(0, 0, 0, 0.8), -1px -1px 0 rgba(0, 0, 0, 0.5)',
+            letterSpacing: '0.05em',
+            marginBottom: '10px',
+            textShadow: '0 0 30px rgba(255, 215, 0, 0.6), 3px 3px 10px rgba(0, 0, 0, 0.8)',
           }}
         >
-          {title}
-        </h1>
+          Find Your Way
+        </div>
+        <div
+          className="font-display font-black"
+          style={{
+            fontSize: '4rem',
+            fontWeight: 800,
+            color: '#FFD700',
+            lineHeight: '1',
+            letterSpacing: '0.05em',
+            textShadow: '0 0 30px rgba(255, 215, 0, 0.6), 3px 3px 10px rgba(0, 0, 0, 0.8)',
+          }}
+        >
+          Through the Wuxia Winds
+        </div>
+      </div>
 
-        {/* Subtitle */}
-        {subtitle && (
+      {/* Subtitle - absolute positioning */}
+      {subtitle && (
+        <div
+          className="absolute left-1/2 text-center w-full px-5 md:px-10"
+          style={{
+            top: '380px',
+            transform: 'translateX(-50%)',
+          }}
+        >
           <p
-            className={`font-body ${
-              goldSubtitle
-                ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
-                : 'text-white'
-            }`}
+            className="font-body text-white"
             style={{
-              fontSize: '1.2rem',
-              marginBottom: '3rem',
+              fontSize: '1rem',
               textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
             }}
           >
             {subtitle}
           </p>
-        )}
+        </div>
+      )}
 
-        {/* CTAs */}
-        {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center mt-8">
-            {primaryCTA && (
-              <Button
-                href={primaryCTA.href}
-                variant="primary"
-                size={variant === 'default' ? 'lg' : 'md'}
-              >
-                {primaryCTA.label}
-              </Button>
-            )}
-            {secondaryCTA && (
-              <Button
-                href={secondaryCTA.href}
-                variant="outline"
-                size={variant === 'default' ? 'lg' : 'md'}
-              >
-                {secondaryCTA.label}
-              </Button>
-            )}
-          </div>
-        )}
-      </div>
+      {/* CTAs */}
+      {(primaryCTA || secondaryCTA) && (
+        <div className="flex flex-col sm:flex-row gap-5 justify-center mt-8">
+          {primaryCTA && (
+            <Button
+              href={primaryCTA.href}
+              variant="primary"
+              size={variant === 'default' ? 'lg' : 'md'}
+            >
+              {primaryCTA.label}
+            </Button>
+          )}
+          {secondaryCTA && (
+            <Button
+              href={secondaryCTA.href}
+              variant="outline"
+              size={variant === 'default' ? 'lg' : 'md'}
+            >
+              {secondaryCTA.label}
+            </Button>
+          )}
+        </div>
+      )}
 
       {/* Scroll Indicator (only for default variant) */}
       {variant === 'default' && (

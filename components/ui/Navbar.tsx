@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
       style={{
         background: 'rgba(0, 20, 40, 0.85)',
         backdropFilter: 'blur(10px)',
-        height: '60px',
+        height: '55px',
       }}
     >
       <div className="max-w-[1400px] mx-auto px-5 flex items-center justify-between h-full">
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
                 <Link
                   href={link.href}
                   className="font-ui text-base hover:text-gold-bright transition-colors flex items-center gap-1"
-                  style={{ color: 'rgba(255, 255, 255, 0.9)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
+                  style={{ color: 'rgba(255, 255, 255, 0.9)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontSize: '0.95rem' }}
                 >
                   {link.label}
                   {link.submenu && <ChevronDown className="w-4 h-4" />}
@@ -139,7 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
                     <Link
                       href={link.href}
                       className="font-ui text-base hover:text-gold-bright transition-colors flex-1"
-                      style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+                      style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.95rem' }}
                       onClick={() => !link.submenu && setIsMobileMenuOpen(false)}
                     >
                       {link.label}
