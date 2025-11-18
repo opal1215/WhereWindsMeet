@@ -27,10 +27,10 @@ export const Hero: React.FC<HeroProps> = ({
   variant = 'default',
   goldSubtitle = false,
 }) => {
-  const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
+  const heightClass = variant === 'default' ? 'h-[40vh] min-h-[320px]' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-center justify-center`}>
+    <section className={`relative ${heightClass} flex items-start justify-center pt-16`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -50,14 +50,14 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="max-w-4xl px-5 md:px-10 text-center">
         {/* Title */}
         <h1
-          className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5 ${
+          className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-3 ${
             variant === 'default'
-              ? 'text-5xl md:text-7xl lg:text-9xl'
+              ? 'text-3xl md:text-4xl lg:text-5xl'
               : 'text-4xl md:text-5xl lg:text-7xl'
           }`}
           style={{
-            lineHeight: '1.1',
-            letterSpacing: '0.05em',
+            lineHeight: '1.2',
+            letterSpacing: '0.02em',
           }}
         >
           {title}
@@ -66,12 +66,12 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Subtitle */}
         {subtitle && (
           <p
-            className={`font-body mb-8 ${
+            className={`font-body mb-6 ${
               goldSubtitle
                 ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
                 : 'text-text-primary/90'
             } ${
-              variant === 'default' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'
+              variant === 'default' ? 'text-base md:text-lg' : 'text-lg md:text-xl'
             }`}
           >
             {subtitle}
@@ -80,12 +80,12 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* CTAs */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             {primaryCTA && (
               <Button
                 href={primaryCTA.href}
                 variant="primary"
-                size={variant === 'default' ? 'lg' : 'md'}
+                size="md"
               >
                 {primaryCTA.label}
               </Button>
@@ -94,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({
               <Button
                 href={secondaryCTA.href}
                 variant="outline"
-                size={variant === 'default' ? 'lg' : 'md'}
+                size="md"
               >
                 {secondaryCTA.label}
               </Button>
@@ -102,15 +102,6 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
         )}
       </div>
-
-      {/* Scroll Indicator (only for default variant) */}
-      {variant === 'default' && (
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gold-primary/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-1.5 bg-gold-primary rounded-full" />
-          </div>
-        </div>
-      )}
     </section>
   );
 };
