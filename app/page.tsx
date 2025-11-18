@@ -26,61 +26,43 @@ export default function HomePage() {
         }}
       />
 
-      {/* Redemption Codes CTA Banner */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-5 py-12">
-          <a
-            href="/codes"
-            className="group block relative bg-gradient-to-r from-gold-dark/20 via-gold-primary/30 to-gold-dark/20 border-2 border-gold-primary/40 rounded-2xl overflow-hidden hover:border-gold-primary/60 transition-all duration-300"
-          >
-            {/* Animated background effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-
-            {/* Content */}
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 p-8 md:p-10">
-              {/* Left side - Icon and Text */}
-              <div className="flex items-center gap-6">
-                <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gold-primary/20 rounded-xl flex items-center justify-center border border-gold-primary/30 group-hover:scale-110 transition-transform duration-300">
-                  <Gift className="w-8 h-8 md:w-10 md:h-10 text-gold-primary" />
-                </div>
-                <div className="text-left">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold-primary/20 border border-gold-primary/40 rounded-full mb-3">
-                    <div className="w-2 h-2 rounded-full bg-gold-primary animate-pulse"></div>
-                    <span className="text-xs font-bold text-gold-primary uppercase tracking-wider">
-                      Latest Codes
-                    </span>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
-                    Free Redemption Codes Available
-                  </h2>
-                  <p className="text-base md:text-lg text-text-secondary">
-                    Get free Echo Jade, Coins, and exclusive rewards. Updated daily for November 2025.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right side - CTA */}
-              <div className="flex-shrink-0">
-                <div className="flex items-center gap-3 px-6 py-3 bg-gold-primary text-bg-primary font-bold rounded-lg group-hover:bg-gold-bright transition-colors duration-200">
-                  <span>Claim Now</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-                </div>
-              </div>
+      {/* Redemption Codes CTA Banner - Fixed Top Right */}
+      <a
+        href="/codes"
+        className="fixed top-24 right-10 z-40 group w-52 bg-gold-primary/10 backdrop-blur-md border-2 border-gold-primary/40 rounded-xl overflow-hidden hover:border-gold-primary/70 hover:bg-gold-primary/15 transition-all duration-300 hidden lg:block"
+      >
+        {/* Content */}
+        <div className="p-4">
+          <div className="flex items-center gap-2 mb-1.5">
+            <Gift className="w-4 h-4 text-gold-primary flex-shrink-0" />
+            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-gold-primary/20 border border-gold-primary/40 rounded-full">
+              <div className="w-1 h-1 rounded-full bg-gold-primary animate-pulse"></div>
+              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-wide">
+                Latest
+              </span>
             </div>
-
-            {/* Bottom accent line */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold-primary to-transparent opacity-50"></div>
-          </a>
+          </div>
+          <h3 className="font-bold text-text-primary mb-0.5 text-xs">
+            Free Redemption Codes
+          </h3>
+          <p className="text-[10px] text-text-secondary mb-2 leading-tight">
+            Echo Jade, Coins & rewards
+          </p>
+          <div className="flex items-center gap-1.5 text-gold-bright text-xs font-semibold group-hover:text-gold-primary transition-colors">
+            <span>Claim Now</span>
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
+          </div>
         </div>
-      </section>
+      </a>
 
       {/* Getting Started Section */}
+      <div className="mt-32"></div>
       <SectionContainer
         title="New to Where Winds Meet?"
         subtitle="Start your journey with these essential guides"
         background="secondary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <Card
             title="Is Where Winds Meet for You?"
             description="Honest breakdown for Souls players, Genshin fans, and MMO veterans. Learn if this game matches your playstyle."
@@ -114,7 +96,7 @@ export default function HomePage() {
         subtitle="Discover the most effective character builds for PVE and PVP"
         background="primary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <Card
             title="PVE DPS Build"
             description="Maximum damage output for boss fights and dungeons."
@@ -150,7 +132,7 @@ export default function HomePage() {
         subtitle="Navigate vast regions with our interactive maps and guides"
         background="secondary"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Card
               title="Interactive World Map"
@@ -177,7 +159,7 @@ export default function HomePage() {
         subtitle="Plan your build, track progress, and optimize your gameplay"
         background="primary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <Card
             title="Build Planner"
             description="Theory-craft and optimize your character build with our interactive planner."

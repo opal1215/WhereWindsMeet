@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '../ui/Button';
+import Link from 'next/link';
 
 interface HeroProps {
   title: string;
@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
   const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
 
   return (
-    <section className={`relative ${heightClass} flex items-center justify-center`}>
+    <section className={`relative ${heightClass}`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -43,71 +43,62 @@ export const Hero: React.FC<HeroProps> = ({
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary/85 -z-10" />
+      {/* Subtle Gradient Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent -z-10" />
 
-      {/* Content */}
-      <div className="max-w-4xl px-5 md:px-10 text-center">
-        {/* Title */}
-        <h1
-          className={`font-display font-black bg-gradient-gold bg-clip-text text-transparent mb-5 ${
-            variant === 'default'
-              ? 'text-5xl md:text-7xl lg:text-9xl'
-              : 'text-4xl md:text-5xl lg:text-7xl'
-          }`}
-          style={{
-            lineHeight: '1.1',
-            letterSpacing: '0.05em',
-          }}
-        >
-          {title}
-        </h1>
-
-        {/* Subtitle */}
-        {subtitle && (
-          <p
-            className={`font-body mb-8 ${
-              goldSubtitle
-                ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
-                : 'text-text-primary/90'
-            } ${
-              variant === 'default' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'
+      {/* Title and Subtitle - Fixed at Top */}
+      <div className="absolute top-16 left-0 right-0 flex justify-center">
+        <div className="max-w-4xl px-5 md:px-10 text-center">
+          {/* Title */}
+          <h1
+            className={`font-display font-bold text-white mb-4 ${
+              variant === 'default'
+                ? 'text-3xl md:text-4xl lg:text-5xl'
+                : 'text-4xl md:text-5xl lg:text-7xl'
             }`}
+            style={{
+              lineHeight: '1.2',
+              letterSpacing: '0.01em',
+            }}
           >
-            {subtitle}
-          </p>
-        )}
+            {title}
+          </h1>
 
-        {/* CTAs */}
-        {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            {primaryCTA && (
-              <Button
-                href={primaryCTA.href}
-                variant="primary"
-                size={variant === 'default' ? 'lg' : 'md'}
-              >
-                {primaryCTA.label}
-              </Button>
-            )}
-            {secondaryCTA && (
-              <Button
-                href={secondaryCTA.href}
-                variant="outline"
-                size={variant === 'default' ? 'lg' : 'md'}
-              >
-                {secondaryCTA.label}
-              </Button>
-            )}
-          </div>
-        )}
+          {/* Subtitle */}
+          {subtitle && (
+            <p
+              className={`font-body text-white/80 ${
+                variant === 'default' ? 'text-base md:text-lg' : 'text-lg md:text-xl'
+              }`}
+            >
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
 
-      {/* Scroll Indicator (only for default variant) */}
-      {variant === 'default' && (
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gold-primary/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-1.5 bg-gold-primary rounded-full" />
+      {/* CTAs - Fixed at Bottom */}
+      {(primaryCTA || secondaryCTA) && (
+        <div className="absolute bottom-20 left-0 right-0 flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-8 items-center mt-12">
+            {primaryCTA && (
+              <Link
+                href={primaryCTA.href}
+                className="bg-white/[0.08] backdrop-blur-[20px] border-[1.5px] border-white/25 text-white px-8 py-3.5 text-base font-normal rounded-3xl transition-all duration-400 hover:px-9 hover:-translate-y-0.5 hover:border-gold-primary/40 hover:shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
+                style={{ letterSpacing: '1.5px' }}
+              >
+                {primaryCTA.label}
+              </Link>
+            )}
+            {secondaryCTA && (
+              <Link
+                href={secondaryCTA.href}
+                className="bg-transparent border-none text-white/75 text-[15px] font-light px-6 py-3.5 underline decoration-gold-primary/30 underline-offset-[6px] decoration-1 transition-all duration-300 hover:text-gold-primary hover:decoration-gold-primary hover:-translate-y-px"
+                style={{ letterSpacing: '1.5px' }}
+              >
+                {secondaryCTA.label}
+              </Link>
+            )}
           </div>
         </div>
       )}

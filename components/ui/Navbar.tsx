@@ -68,14 +68,14 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-gold-primary/20">
-      <div className="max-w-[1400px] mx-auto px-5 py-5">
+      <div className="max-w-[1400px] mx-auto px-5 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center font-display font-black text-bg-primary text-xl">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-gradient-gold rounded-lg flex items-center justify-center font-display font-black text-bg-primary text-base">
               W
             </div>
-            <span className="font-display text-xl text-gold-primary font-bold hidden md:block group-hover:text-gold-bright transition-colors">
+            <span className="font-display text-base text-gold-primary font-bold hidden md:block group-hover:text-gold-bright transition-colors">
               Where Winds Meet
             </span>
           </Link>
@@ -86,10 +86,10 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
               <div key={link.href} className="relative group">
                 <Link
                   href={link.href}
-                  className="font-ui text-base text-text-secondary hover:text-gold-bright transition-colors flex items-center gap-1"
+                  className="font-ui text-sm text-text-secondary hover:text-gold-bright transition-colors flex items-center gap-1"
                 >
                   {link.label}
-                  {link.submenu && <ChevronDown className="w-4 h-4" />}
+                  {link.submenu && <ChevronDown className="w-3 h-3" />}
                 </Link>
 
                 {/* Desktop Submenu */}
@@ -115,10 +115,10 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden w-11 h-11 flex items-center justify-center text-gold-primary hover:text-gold-bright transition-colors"
+            className="lg:hidden w-8 h-8 flex items-center justify-center text-gold-primary hover:text-gold-bright transition-colors"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
