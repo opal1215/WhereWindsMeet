@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { TableOfContents } from '@/components/ui/TableOfContents';
 import { RelatedContent } from '@/components/ui/RelatedContent';
 import { FAQ } from '@/components/ui/FAQ';
-import { getGuideBySlug, getAllGuides, generateTOC } from '@/lib/content';
+import { getGuideBySlug, getAllGuides, generateTOC, markdownToHtml } from '@/lib/content';
 
 interface PageProps {
   params: { slug: string };
@@ -68,15 +68,8 @@ export default function GuidePage({ params }: PageProps) {
   // Generate TOC from markdown if not provided in frontmatter
   const toc = metadata.toc || generateTOC(content);
 
-  // Convert markdown headings to HTML IDs for TOC navigation
-  const contentWithIds = content.replace(/^(#{2,3})\s+(.+)$/gm, (match, hashes, text) => {
-    const level = hashes.length;
-    const id = text
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
-    return `<h${level} id="${id}">${text}</h${level}>`;
-  });
+  // Convert markdown to HTML
+  const htmlContent = markdownToHtml(content);
 
   return (
     <>
@@ -138,7 +131,7 @@ export default function GuidePage({ params }: PageProps) {
                     [&_li]:text-text-secondary
                     [&_strong]:text-text-primary [&_strong]:font-semibold
                     [&_p]:my-4 [&_p]:leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: contentWithIds.replace(/\n/g, '<br/>') }}
+                  dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
               </div>
 

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 
 const contentDirectory = path.join(process.cwd(), 'content');
 
@@ -184,14 +185,8 @@ export function generateTOC(markdown: string): Array<{ id: string; text: string;
 
 /**
  * Convert markdown to HTML-safe format for rendering
- * (Simple implementation - for complex markdown, use remark/rehype)
  */
 export function markdownToHtml(markdown: string): string {
-  // Simple conversion - replace newlines with <br/>
-  // For production, consider using remark-html or similar
-  return markdown
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/\n/g, '<br/>')
-    .replace(/^/, '<p>')
-    .replace(/$/, '</p>');
+  const html = marked.parse(markdown) as string;
+  return html;
 }

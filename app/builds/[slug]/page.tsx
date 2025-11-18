@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { RelatedContent } from '@/components/ui/RelatedContent';
 import { Sword, Shield, Zap, Target, Heart, TrendingUp } from 'lucide-react';
-import { getBuildBySlug, getAllBuilds } from '@/lib/content';
+import { getBuildBySlug, getAllBuilds, markdownToHtml } from '@/lib/content';
 
 interface PageProps {
   params: { slug: string };
@@ -66,6 +66,9 @@ export default function BuildPage({ params }: PageProps) {
   }
 
   const { metadata, content } = build;
+
+  // Convert markdown to HTML
+  const htmlContent = markdownToHtml(content);
 
   const difficultyColor = {
     'Easy': 'text-green-400',
@@ -156,7 +159,7 @@ export default function BuildPage({ params }: PageProps) {
                   [&_li]:text-text-secondary
                   [&_strong]:text-text-primary [&_strong]:font-semibold
                   [&_p]:my-4 [&_p]:leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}
+                dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
             </div>
           </section>
