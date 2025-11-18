@@ -15,6 +15,7 @@ interface HeroProps {
     href: string;
   };
   variant?: 'default' | 'compact';
+  goldSubtitle?: boolean;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -24,6 +25,7 @@ export const Hero: React.FC<HeroProps> = ({
   primaryCTA,
   secondaryCTA,
   variant = 'default',
+  goldSubtitle = false,
 }) => {
   const heightClass = variant === 'default' ? 'h-screen min-h-[600px]' : 'h-[60vh] min-h-[400px]';
 
@@ -64,7 +66,11 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Subtitle */}
         {subtitle && (
           <p
-            className={`font-body text-text-primary/90 mb-8 ${
+            className={`font-body mb-8 ${
+              goldSubtitle
+                ? 'bg-gradient-gold bg-clip-text text-transparent font-semibold'
+                : 'text-text-primary/90'
+            } ${
               variant === 'default' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'
             }`}
           >

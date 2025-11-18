@@ -12,8 +12,9 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <Hero
-        title="WHERE WINDS MEET"
-        subtitle="Your Wuxia Adventure Begins Here"
+        title="Find Your Way Through the Wuxia Winds"
+        subtitle="Beginner tips, builds, maps and resources for PS5 & PC players."
+        goldSubtitle={true}
         primaryCTA={{
           label: 'Beginner Guide',
           href: '/beginner-guide',
