@@ -13,7 +13,8 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const guide = getGuideBySlug(params.slug);
+  const { slug } = await params;
+  const guide = getGuideBySlug(slug);
 
   if (!guide) {
     return {
@@ -51,13 +52,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [metadata.image],
     },
     alternates: {
-      canonical: `https://wherewindsmeetgame.org/guides/${params.slug}`,
+      canonical: `https://wherewindsmeetgame.org/guides/${slug}`,
     },
   };
 }
 
-export default function GuidePage({ params }: PageProps) {
-  const guide = getGuideBySlug(params.slug);
+export default async function GuidePage({ params }: PageProps) {
+  const { slug } = await params;
+  const guide = getGuideBySlug(slug);
 
   if (!guide) {
     notFound();
@@ -88,14 +90,14 @@ export default function GuidePage({ params }: PageProps) {
         datePublished={metadata.datePublished}
         dateModified={metadata.dateModified}
         image={metadata.image}
-        url={`https://wherewindsmeetgame.org/guides/${params.slug}`}
+        url={`https://wherewindsmeetgame.org/guides/${slug}`}
       />
 
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: 'https://wherewindsmeetgame.org' },
           { name: 'Guides', url: 'https://wherewindsmeetgame.org/guides' },
-          { name: metadata.title, url: `https://wherewindsmeetgame.org/guides/${params.slug}` },
+          { name: metadata.title, url: `https://wherewindsmeetgame.org/guides/${slug}` },
         ]}
       />
 

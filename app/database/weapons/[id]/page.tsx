@@ -117,7 +117,8 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const weapon = weaponsDetailData[params.id];
+  const { id } = await params;
+  const weapon = weaponsDetailData[id];
 
   if (!weapon) {
     return {
@@ -149,13 +150,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [`/images/weapons/${weapon.id}.jpg`],
     },
     alternates: {
-      canonical: `https://wherewindsmeetgame.org/database/weapons/${params.id}`,
+      canonical: `https://wherewindsmeetgame.org/database/weapons/${id}`,
     },
   };
 }
 
-export default function WeaponDetailPage({ params }: PageProps) {
-  const weapon = weaponsDetailData[params.id];
+export default async function WeaponDetailPage({ params }: PageProps) {
+  const { id } = await params;
+  const weapon = weaponsDetailData[id];
 
   if (!weapon) {
     notFound();
@@ -178,7 +180,7 @@ export default function WeaponDetailPage({ params }: PageProps) {
         datePublished="2025-11-18"
         dateModified="2025-11-18"
         image={`/images/weapons/${weapon.id}.jpg`}
-        url={`https://wherewindsmeetgame.org/database/weapons/${params.id}`}
+        url={`https://wherewindsmeetgame.org/database/weapons/${id}`}
       />
 
       <BreadcrumbSchema
@@ -186,7 +188,7 @@ export default function WeaponDetailPage({ params }: PageProps) {
           { name: 'Home', url: 'https://wherewindsmeetgame.org' },
           { name: 'Database', url: 'https://wherewindsmeetgame.org/database' },
           { name: 'Weapons', url: 'https://wherewindsmeetgame.org/database/weapons' },
-          { name: weapon.name, url: `https://wherewindsmeetgame.org/database/weapons/${params.id}` },
+          { name: weapon.name, url: `https://wherewindsmeetgame.org/database/weapons/${id}` },
         ]}
       />
 

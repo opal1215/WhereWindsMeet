@@ -15,7 +15,8 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const build = getBuildBySlug(params.slug);
+  const { slug } = await params;
+  const build = getBuildBySlug(slug);
 
   if (!build) {
     return {
@@ -53,13 +54,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [metadata.image],
     },
     alternates: {
-      canonical: `https://wherewindsmeetgame.org/builds/${params.slug}`,
+      canonical: `https://wherewindsmeetgame.org/builds/${slug}`,
     },
   };
 }
 
-export default function BuildPage({ params }: PageProps) {
-  const build = getBuildBySlug(params.slug);
+export default async function BuildPage({ params }: PageProps) {
+  const { slug } = await params;
+  const build = getBuildBySlug(slug);
 
   if (!build) {
     notFound();
@@ -84,7 +86,7 @@ export default function BuildPage({ params }: PageProps) {
         datePublished={metadata.datePublished}
         dateModified={metadata.dateModified}
         image={metadata.image}
-        url={`https://wherewindsmeetgame.org/builds/${params.slug}`}
+        url={`https://wherewindsmeetgame.org/builds/${slug}`}
       />
 
       <HowToSchema
@@ -98,7 +100,7 @@ export default function BuildPage({ params }: PageProps) {
         items={[
           { name: 'Home', url: 'https://wherewindsmeetgame.org' },
           { name: 'Builds', url: 'https://wherewindsmeetgame.org/builds' },
-          { name: metadata.title, url: `https://wherewindsmeetgame.org/builds/${params.slug}` },
+          { name: metadata.title, url: `https://wherewindsmeetgame.org/builds/${slug}` },
         ]}
       />
 
