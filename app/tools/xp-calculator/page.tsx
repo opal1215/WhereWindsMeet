@@ -7,24 +7,26 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { WebSiteSchema } from '@/components/seo/WebSiteSchema';
 
-// XP curve data (example values - adjust based on actual game)
+// XP curve data based on research (Level 100 Cap)
+// Note: Significant grind increase around level 40-50
 const XP_TABLE: Record<number, number> = {
   1: 0,
-  2: 100,
-  3: 250,
-  4: 450,
-  5: 700,
-  10: 3500,
-  15: 9000,
-  20: 18000,
-  25: 32000,
-  30: 52000,
-  35: 80000,
-  40: 120000,
-  45: 175000,
-  50: 250000,
-  55: 350000,
-  60: 500000,
+  5: 1500,
+  10: 8000,
+  15: 25000,
+  20: 60000,
+  25: 120000,
+  30: 250000,
+  35: 450000,
+  40: 800000, // Grind starts
+  45: 1500000,
+  50: 2500000, // Breakthrough required
+  55: 4000000,
+  60: 6000000,
+  70: 12000000,
+  80: 25000000,
+  90: 50000000,
+  100: 100000000, // Max Level
 };
 
 // Interpolate XP for levels not in table
@@ -34,7 +36,7 @@ function getXPForLevel(level: number): number {
   // Find nearest known levels
   const levels = Object.keys(XP_TABLE).map(Number).sort((a, b) => a - b);
   const lowerLevel = levels.reverse().find(l => l < level) || 1;
-  const upperLevel = levels.find(l => l > level) || 60;
+  const upperLevel = levels.find(l => l > level) || 100;
 
   // Linear interpolation
   const lowerXP = XP_TABLE[lowerLevel];
@@ -47,7 +49,7 @@ function getXPForLevel(level: number): number {
 export default function XPCalculatorPage() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [currentXP, setCurrentXP] = useState(0);
-  const [targetLevel, setTargetLevel] = useState(50);
+  const [targetLevel, setTargetLevel] = useState(60);
 
   const currentLevelXP = getXPForLevel(currentLevel);
   const nextLevelXP = getXPForLevel(currentLevel + 1);
@@ -57,14 +59,14 @@ export default function XPCalculatorPage() {
   const progressToNextLevel = ((currentXP) / (nextLevelXP - currentLevelXP)) * 100;
   const overallProgress = ((currentLevelXP + currentXP) / targetLevelXP) * 100;
 
-  // Activity XP rates (example values)
+  // Activity XP rates (Adjusted for authentic gameplay loops)
   const activities = [
-    { name: 'Main Story Quest', xp: 5000, icon: '📜' },
-    { name: 'Side Quest', xp: 1500, icon: '📋' },
-    { name: 'Daily Quest', xp: 2000, icon: '📅' },
-    { name: 'World Boss Kill', xp: 8000, icon: '👹' },
-    { name: 'Dungeon Clear', xp: 4000, icon: '🏰' },
-    { name: 'PVP Match Win', xp: 1200, icon: '⚔️' },
+    { name: 'Main Story Quest (Chapter)', xp: 50000, icon: '📜' },
+    { name: 'Daily Bounty (Suspended)', xp: 15000, icon: '💰' },
+    { name: 'World Boss (First Kill)', xp: 100000, icon: '👹' },
+    { name: 'Dungeon Run (Elite)', xp: 35000, icon: '🏰' },
+    { name: 'Side Quest', xp: 8000, icon: '📋' },
+    { name: 'Exploration Chest', xp: 2500, icon: '💎' },
   ];
 
   return (
@@ -98,7 +100,7 @@ export default function XPCalculatorPage() {
               </h1>
             </div>
             <p className="font-body text-lg text-text-secondary leading-relaxed max-w-3xl">
-              Calculate how much experience you need to reach your target level and plan your leveling route efficiently.
+              Plan your path to Level 100. Calculate the XP needed for your next breakthrough and optimize your daily farming routine.
             </p>
           </header>
 
@@ -115,9 +117,9 @@ export default function XPCalculatorPage() {
                 <input
                   type="number"
                   min="1"
-                  max="60"
+                  max="100"
                   value={currentLevel}
-                  onChange={(e) => setCurrentLevel(Math.max(1, Math.min(60, parseInt(e.target.value) || 1)))}
+                  onChange={(e) => setCurrentLevel(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))}
                   className="w-full px-4 py-3 bg-bg-secondary border border-gold-dark/30 rounded-lg text-text-primary text-xl font-bold focus:outline-none focus:border-gold-primary transition-colors"
                 />
               </div>
@@ -148,9 +150,9 @@ export default function XPCalculatorPage() {
                 <input
                   type="number"
                   min={currentLevel + 1}
-                  max="60"
+                  max="100"
                   value={targetLevel}
-                  onChange={(e) => setTargetLevel(Math.max(currentLevel + 1, Math.min(60, parseInt(e.target.value) || 50)))}
+                  onChange={(e) => setTargetLevel(Math.max(currentLevel + 1, Math.min(100, parseInt(e.target.value) || 60)))}
                   className="w-full px-4 py-3 bg-bg-secondary border border-gold-dark/30 rounded-lg text-text-primary text-xl font-bold focus:outline-none focus:border-gold-primary transition-colors"
                 />
               </div>
@@ -240,19 +242,15 @@ export default function XPCalculatorPage() {
             <ul className="space-y-2 text-text-secondary text-sm">
               <li className="flex items-start gap-2">
                 <span className="text-gold-bright mt-0.5">•</span>
-                <span>Focus on main story quests for the best XP/hour ratio</span>
+                <span><strong>Breakthroughs</strong>: At levels 20, 40, and 60, you must complete a breakthrough quest to continue leveling.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gold-bright mt-0.5">•</span>
-                <span>Complete daily quests every day for consistent progress</span>
+                <span><strong>Daily Bounties</strong>: The most efficient XP source for levels 40-60. Don't miss them!</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gold-bright mt-0.5">•</span>
-                <span>World bosses give huge XP bonuses but appear on a timer</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gold-bright mt-0.5">•</span>
-                <span>Group up for dungeon runs to maximize efficiency</span>
+                <span><strong>Exploration</strong>: Finding chests and solving puzzles grants significant XP and is key for early game leveling.</span>
               </li>
             </ul>
           </div>

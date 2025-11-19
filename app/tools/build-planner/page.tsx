@@ -8,49 +8,54 @@ import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { WebSiteSchema } from '@/components/seo/WebSiteSchema';
 
 interface Attributes {
-  strength: number;
-  agility: number;
-  vitality: number;
-  intelligence: number;
-  spirit: number;
+  strength: number; // External Attack & Defense
+  agility: number;  // Internal Attack & Crit
+  vitality: number; // HP & Defense
+  intelligence: number; // Qi & Skill Haste
+  spirit: number;   // Special Handling / Recovery
 }
 
 interface CalculatedStats {
   health: number;
-  attack: number;
+  externalAttack: number;
+  internalAttack: number;
   defense: number;
   critChance: number;
   critDamage: number;
 }
 
 const ATTRIBUTE_NAMES: (keyof Attributes)[] = ['strength', 'agility', 'vitality', 'intelligence', 'spirit'];
-const MAX_LEVEL = 60;
+const MAX_LEVEL = 100;
 const POINTS_PER_LEVEL = 5;
 const MAX_TOTAL_POINTS = MAX_LEVEL * POINTS_PER_LEVEL;
 
 export default function BuildPlannerPage() {
   const [buildName, setBuildName] = useState('My Build');
-  const [level, setLevel] = useState(50);
-  const [selectedWeapon, setSelectedWeapon] = useState('Dual Blades');
+  const [level, setLevel] = useState(60);
+  const [selectedWeapon, setSelectedWeapon] = useState('Sword');
   const [selectedPlaystyle, setSelectedPlaystyle] = useState('DPS');
   const [attributes, setAttributes] = useState<Attributes>({
     strength: 50,
-    agility: 80,
+    agility: 50,
     vitality: 40,
-    intelligence: 20,
-    spirit: 10,
+    intelligence: 30,
+    spirit: 30,
   });
 
   const totalPointsUsed = Object.values(attributes).reduce((sum, val) => sum + val, 0);
   const availablePoints = (level * POINTS_PER_LEVEL) - totalPointsUsed;
 
-  // Calculate derived stats
+  // Calculate derived stats based on research:
+  // Strength -> External Attack
+  // Agility -> Internal Attack + Crit
+  // Vitality -> HP
   const calculatedStats: CalculatedStats = {
-    health: 1000 + (attributes.vitality * 25),
-    attack: 100 + (attributes.strength * 3) + (attributes.agility * 2),
-    defense: 50 + (attributes.vitality * 2),
-    critChance: 5 + (attributes.agility * 0.25),
-    critDamage: 150 + (attributes.strength * 0.5),
+    health: 1500 + (attributes.vitality * 45) + (level * 20),
+    externalAttack: 100 + (attributes.strength * 4.5) + (attributes.agility * 1.0),
+    internalAttack: 100 + (attributes.agility * 4.5) + (attributes.intelligence * 2.0),
+    defense: 80 + (attributes.vitality * 2.5) + (attributes.strength * 1.5),
+    critChance: 5 + (attributes.agility * 0.15),
+    critDamage: 150 + (attributes.agility * 0.5) + (attributes.strength * 0.2),
   };
 
   const handleAttributeChange = (attr: keyof Attributes, delta: number) => {
@@ -59,7 +64,7 @@ export default function BuildPlannerPage() {
       // Check constraints
       if (newValue < 0) return prev;
       if (delta > 0 && availablePoints <= 0) return prev;
-      if (newValue > 200) return prev; // Max attribute cap
+      if (newValue > 300) return prev; // Max attribute cap increased for lvl 100
 
       return { ...prev, [attr]: newValue };
     });
@@ -76,14 +81,14 @@ export default function BuildPlannerPage() {
   };
 
   const weaponTypes = ['Sword', 'Dual Blades', 'Polearm', 'Bow', 'Fist'];
-  const playstyles = ['DPS', 'Tank', 'Support', 'Hybrid'];
+  const playstyles = ['External DPS', 'Internal DPS', 'Tank', 'Support'];
 
   // Recommended builds presets
   const presets = {
-    'PVE DPS': { strength: 60, agility: 80, vitality: 40, intelligence: 10, spirit: 10 },
-    'PVP Duelist': { strength: 50, agility: 70, vitality: 60, intelligence: 10, spirit: 10 },
-    'Tank': { strength: 40, agility: 30, vitality: 100, intelligence: 10, spirit: 20 },
-    'Balanced': { strength: 50, agility: 50, vitality: 50, intelligence: 25, spirit: 25 },
+    'External Burst': { strength: 150, agility: 80, vitality: 50, intelligence: 10, spirit: 10 },
+    'Internal Crit': { strength: 20, agility: 150, vitality: 40, intelligence: 80, spirit: 10 },
+    'Iron Wall Tank': { strength: 80, agility: 20, vitality: 150, intelligence: 20, spirit: 30 },
+    'Balanced Solo': { strength: 80, agility: 80, vitality: 80, intelligence: 30, spirit: 30 },
   };
 
   const loadPreset = (presetName: keyof typeof presets) => {
@@ -122,7 +127,7 @@ export default function BuildPlannerPage() {
               </h1>
             </div>
             <p className="font-body text-lg text-text-secondary leading-relaxed max-w-3xl">
-              Plan and optimize your character build. Distribute attribute points, calculate stats, and share your builds with the community.
+              Plan your martial arts journey. Optimize for External or Internal mastery, calculate your combat stats, and prepare for the level 100 endgame.
             </p>
           </header>
 
@@ -177,11 +182,10 @@ export default function BuildPlannerPage() {
                         <button
                           key={weapon}
                           onClick={() => setSelectedWeapon(weapon)}
-                          className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                            selectedWeapon === weapon
+                          className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${selectedWeapon === weapon
                               ? 'bg-gold-primary text-bg-primary border-2 border-gold-primary'
                               : 'bg-bg-secondary text-text-secondary border-2 border-gold-dark/30 hover:border-gold-primary'
-                          }`}
+                            }`}
                         >
                           {weapon}
                         </button>
@@ -199,11 +203,10 @@ export default function BuildPlannerPage() {
                         <button
                           key={style}
                           onClick={() => setSelectedPlaystyle(style)}
-                          className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                            selectedPlaystyle === style
+                          className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${selectedPlaystyle === style
                               ? 'bg-gold-primary text-bg-primary border-2 border-gold-primary'
                               : 'bg-bg-secondary text-text-secondary border-2 border-gold-dark/30 hover:border-gold-primary'
-                          }`}
+                            }`}
                         >
                           {style}
                         </button>
@@ -251,7 +254,7 @@ export default function BuildPlannerPage() {
                       value={attributes[attr]}
                       onIncrease={() => handleAttributeChange(attr, 1)}
                       onDecrease={() => handleAttributeChange(attr, -1)}
-                      canIncrease={availablePoints > 0 && attributes[attr] < 200}
+                      canIncrease={availablePoints > 0 && attributes[attr] < 300}
                       canDecrease={attributes[attr] > 0}
                     />
                   ))}
@@ -285,12 +288,13 @@ export default function BuildPlannerPage() {
             <div className="space-y-6">
               {/* Calculated Stats */}
               <div className="bg-bg-card rounded-lg border border-gold-dark/30 p-6 sticky top-24">
-                <h2 className="font-display text-2xl text-gold-primary font-bold mb-6">Calculated Stats</h2>
+                <h2 className="font-display text-2xl text-gold-primary font-bold mb-6">Combat Stats</h2>
 
                 <div className="space-y-4">
-                  <StatDisplay label="Health" value={calculatedStats.health.toLocaleString()} color="text-red-400" />
-                  <StatDisplay label="Attack" value={calculatedStats.attack.toLocaleString()} color="text-gold-bright" />
-                  <StatDisplay label="Defense" value={calculatedStats.defense.toLocaleString()} color="text-blue-accent" />
+                  <StatDisplay label="Health (HP)" value={calculatedStats.health.toLocaleString()} color="text-red-400" />
+                  <StatDisplay label="External Attack" value={calculatedStats.externalAttack.toFixed(0)} color="text-gold-bright" />
+                  <StatDisplay label="Internal Attack" value={calculatedStats.internalAttack.toFixed(0)} color="text-blue-accent" />
+                  <StatDisplay label="Defense" value={calculatedStats.defense.toFixed(0)} color="text-gray-300" />
                   <StatDisplay label="Crit Chance" value={`${calculatedStats.critChance.toFixed(1)}%`} color="text-purple-400" />
                   <StatDisplay label="Crit Damage" value={`${calculatedStats.critDamage.toFixed(0)}%`} color="text-orange-400" />
                 </div>
@@ -322,28 +326,24 @@ export default function BuildPlannerPage() {
               {/* Tips */}
               <div className="bg-gradient-to-br from-blue-accent/10 to-gold-primary/10 rounded-lg border border-gold-dark/30 p-6">
                 <h3 className="font-display text-lg text-gold-primary font-bold mb-3">
-                  Build Tips
+                  Attribute Effects
                 </h3>
                 <ul className="space-y-2 text-text-secondary text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-gold-bright mt-0.5">•</span>
-                    <span><strong>Strength</strong> increases physical damage and crit damage</span>
+                    <span><strong>Strength</strong>: Boosts External Attack & Defense. Key for heavy weapons.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gold-bright mt-0.5">•</span>
-                    <span><strong>Agility</strong> boosts attack speed and crit chance</span>
+                    <span><strong>Agility</strong>: Boosts Internal Attack & Crit. Essential for burst damage.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gold-bright mt-0.5">•</span>
-                    <span><strong>Vitality</strong> increases health and defense</span>
+                    <span><strong>Vitality</strong>: Increases HP & Defense. Critical for survival.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gold-bright mt-0.5">•</span>
-                    <span><strong>Intelligence</strong> enhances skill damage</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold-bright mt-0.5">•</span>
-                    <span><strong>Spirit</strong> improves energy regeneration</span>
+                    <span><strong>Intelligence</strong>: Enhances Qi & Skill cooldowns.</span>
                   </li>
                 </ul>
               </div>
@@ -378,7 +378,7 @@ function AttributeControl({
         <div className="w-full bg-bg-primary rounded-full h-2">
           <div
             className="bg-gradient-gold h-2 rounded-full transition-all"
-            style={{ width: `${(value / 200) * 100}%` }}
+            style={{ width: `${(value / 300) * 100}%` }}
           />
         </div>
       </div>

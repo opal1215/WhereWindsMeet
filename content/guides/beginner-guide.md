@@ -43,7 +43,7 @@ Welcome to the world of Where Winds Meet! This comprehensive guide will help you
 - Essential tips for new players
 - Common beginner mistakes to avoid
 
-## Getting Started
+## Getting Started in Where Winds Meet
 
 ### Choosing Your Sect
 
@@ -63,7 +63,7 @@ Where Winds Meet offers two distinct gameplay modes:
 
 We recommend starting in RPG mode to learn the mechanics before transitioning to MMO mode.
 
-## Combat Basics
+## Where Winds Meet Combat Basics
 
 ### The Three Pillars of Combat
 
@@ -75,7 +75,7 @@ We recommend starting in RPG mode to learn the mechanics before transitioning to
 
 Your stamina bar is crucial for both offense and defense. Never let it fully deplete during combat.
 
-## Progression Systems
+## Progression Systems Overview
 
 ### Character Levels
 

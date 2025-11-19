@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     images: ['/twitter-image.jpg'],
   },
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE', // TODO: Replace with actual verification code
+    google: '2oXklNxYfhVCDc_1_Wn--OYhXRGmZoKkEgd1SceLpCI',
   },
   viewport: {
     width: 'device-width',
@@ -73,6 +73,9 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/site.webmanifest',
+  alternates: {
+    canonical: './',
+  },
   themeColor: '#D4AF37',
 };
 

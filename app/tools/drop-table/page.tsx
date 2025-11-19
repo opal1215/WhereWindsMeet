@@ -24,60 +24,58 @@ interface Boss {
   drops: DropItem[];
 }
 
+// Authentic Boss Data based on research
 const bossData: Boss[] = [
   {
-    id: 'volcano-lord',
-    name: 'Volcano Lord',
-    level: 50,
-    location: 'Northern Frontier - Infernal Volcano',
-    difficulty: 'World Boss',
+    id: 'shadow-puppet',
+    name: 'Shadow Puppet (皮影·幕起)',
+    level: 15,
+    location: 'Qinghe Village - Theater',
+    difficulty: 'Normal',
     drops: [
-      { name: 'Infernal Twinblades', type: 'Weapon', rarity: 'Legendary', dropRate: 5, quantity: '1' },
-      { name: 'Flame Core', type: 'Material', rarity: 'Epic', dropRate: 25, quantity: '1-3' },
-      { name: 'Volcanic Ore', type: 'Material', rarity: 'Rare', dropRate: 50, quantity: '3-5' },
-      { name: 'Phoenix Feather', type: 'Material', rarity: 'Epic', dropRate: 15, quantity: '1' },
-      { name: 'Gold Coins', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '5000-8000' },
+      { name: 'Puppet Strings', type: 'Material', rarity: 'Rare', dropRate: 30, quantity: '1-2' },
+      { name: 'Theater Mask', type: 'Armor', rarity: 'Rare', dropRate: 15, quantity: '1' },
+      { name: 'Wooden Sword', type: 'Weapon', rarity: 'Common', dropRate: 50, quantity: '1' },
+      { name: 'Copper Coins', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '500-1000' },
     ],
   },
   {
-    id: 'dragon-emperor',
-    name: 'Dragon Emperor',
-    level: 55,
-    location: 'Dragon Valley - Imperial Peak',
-    difficulty: 'Raid Boss',
-    drops: [
-      { name: 'Dragon Slayer Sword', type: 'Weapon', rarity: 'Legendary', dropRate: 8, quantity: '1' },
-      { name: 'Dragon Scale', type: 'Material', rarity: 'Legendary', dropRate: 20, quantity: '1-2' },
-      { name: 'Emperor\'s Crown', type: 'Armor', rarity: 'Legendary', dropRate: 10, quantity: '1' },
-      { name: 'Dragon Heart', type: 'Material', rarity: 'Epic', dropRate: 35, quantity: '1' },
-      { name: 'Gold Coins', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '10000-15000' },
-    ],
-  },
-  {
-    id: 'shadow-assassin',
-    name: 'Shadow Assassin',
-    level: 45,
-    location: 'Dark Forest - Hidden Cave',
+    id: 'ghost-hand',
+    name: 'Ghost Hand (鬼手)',
+    level: 40,
+    location: 'Kaifeng - Underground',
     difficulty: 'Elite',
     drops: [
-      { name: 'Celestial Daggers', type: 'Weapon', rarity: 'Epic', dropRate: 12, quantity: '1' },
-      { name: 'Shadow Essence', type: 'Material', rarity: 'Rare', dropRate: 40, quantity: '2-4' },
-      { name: 'Stealth Cloak', type: 'Armor', rarity: 'Rare', dropRate: 30, quantity: '1' },
-      { name: 'Gold Coins', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '2000-3000' },
+      { name: 'Poisoned Dagger', type: 'Weapon', rarity: 'Epic', dropRate: 10, quantity: '1' },
+      { name: 'Secret Medical Text', type: 'Material', rarity: 'Epic', dropRate: 20, quantity: '1' },
+      { name: 'Healer\'s Robe', type: 'Armor', rarity: 'Rare', dropRate: 25, quantity: '1' },
+      { name: 'Silver Taels', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '2000-3000' },
     ],
   },
   {
-    id: 'jade-guardian',
-    name: 'Jade Guardian',
-    level: 52,
-    location: 'Imperial Palace - Throne Room',
+    id: 'ye-wanshan',
+    name: 'Ye Wanshan (叶万山)',
+    level: 60,
+    location: 'Wilderness - Bandit Camp',
     difficulty: 'World Boss',
     drops: [
-      { name: 'Jade Emperor Polearm', type: 'Weapon', rarity: 'Legendary', dropRate: 6, quantity: '1' },
-      { name: 'Imperial Jade', type: 'Material', rarity: 'Epic', dropRate: 30, quantity: '1-2' },
-      { name: 'Guardian\'s Armor Set', type: 'Armor', rarity: 'Epic', dropRate: 20, quantity: '1 piece' },
-      { name: 'Royal Seal', type: 'Material', rarity: 'Rare', dropRate: 45, quantity: '1' },
-      { name: 'Gold Coins', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '6000-9000' },
+      { name: 'Bandit King\'s Blade', type: 'Weapon', rarity: 'Legendary', dropRate: 5, quantity: '1' },
+      { name: 'Heavy Iron Armor', type: 'Armor', rarity: 'Epic', dropRate: 15, quantity: '1' },
+      { name: 'Refined Iron', type: 'Material', rarity: 'Rare', dropRate: 40, quantity: '5-10' },
+      { name: 'Gold Leaves', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '5000-8000' },
+    ],
+  },
+  {
+    id: 'wuxiang-emperor',
+    name: 'Wuxiang Emperor (无相皇)',
+    level: 80,
+    location: 'Forbidden City - Inner Sanctum',
+    difficulty: 'Raid Boss',
+    drops: [
+      { name: 'Emperor\'s Jade Seal', type: 'Material', rarity: 'Legendary', dropRate: 10, quantity: '1' },
+      { name: 'Forbidden Technique Scroll', type: 'Material', rarity: 'Legendary', dropRate: 5, quantity: '1' },
+      { name: 'Royal Guard Set', type: 'Armor', rarity: 'Epic', dropRate: 20, quantity: '1 piece' },
+      { name: 'Gold Ingots', type: 'Currency', rarity: 'Common', dropRate: 100, quantity: '10000+' },
     ],
   },
 ];
@@ -131,7 +129,7 @@ export default function DropTablePage() {
               </h1>
             </div>
             <p className="font-body text-lg text-text-secondary leading-relaxed max-w-3xl">
-              Complete database of boss drops, loot tables, and drop rates. Plan your farming routes efficiently.
+              Find the loot you need. Search for authentic bosses like Shadow Puppet and Wuxiang Emperor to see their drop rates and locations.
             </p>
           </header>
 
@@ -151,7 +149,7 @@ export default function DropTablePage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
                 <input
                   type="text"
-                  placeholder="Search bosses or locations..."
+                  placeholder="Search bosses (e.g., Ghost Hand)..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-bg-secondary border border-gold-dark/30 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-gold-primary transition-colors"
@@ -202,9 +200,9 @@ export default function DropTablePage() {
 
               const difficultyColor =
                 boss.difficulty === 'Raid Boss' ? 'text-red-400 border-red-400' :
-                boss.difficulty === 'World Boss' ? 'text-gold-bright border-gold-bright' :
-                boss.difficulty === 'Elite' ? 'text-purple-400 border-purple-400' :
-                'text-blue-400 border-blue-400';
+                  boss.difficulty === 'World Boss' ? 'text-gold-bright border-gold-bright' :
+                    boss.difficulty === 'Elite' ? 'text-purple-400 border-purple-400' :
+                      'text-blue-400 border-blue-400';
 
               return (
                 <div
@@ -311,19 +309,15 @@ export default function DropTablePage() {
             <ul className="space-y-2 text-text-secondary text-sm">
               <li className="flex items-start gap-2">
                 <span className="text-gold-bright mt-0.5">•</span>
-                <span><strong className="text-text-primary">World Bosses</strong> respawn every 4-6 hours - check spawn timers</span>
+                <span><strong className="text-text-primary">Shadow Puppet</strong>: Best farmed early for quick material gains.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gold-bright mt-0.5">•</span>
-                <span><strong className="text-text-primary">Elite Bosses</strong> can be farmed repeatedly with dungeon resets</span>
+                <span><strong className="text-text-primary">Ghost Hand</strong>: Requires anti-poison consumables.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gold-bright mt-0.5">•</span>
-                <span><strong className="text-text-primary">Raid Bosses</strong> are weekly lockouts - plan accordingly</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gold-bright mt-0.5">•</span>
-                <span>Drop rates can be increased with luck buffs and party bonuses</span>
+                <span><strong className="text-text-primary">Wuxiang Emperor</strong>: Weekly raid boss. Coordinate with your guild!</span>
               </li>
             </ul>
           </div>

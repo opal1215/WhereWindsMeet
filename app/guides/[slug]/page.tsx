@@ -1,12 +1,17 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { TableOfContents } from '@/components/ui/TableOfContents';
 import { RelatedContent } from '@/components/ui/RelatedContent';
 import { FAQ } from '@/components/ui/FAQ';
-import { getGuideBySlug, getAllGuides, generateTOC, markdownToHtml } from '@/lib/content';
+import { getGuideBySlug, getAllGuides, generateTOC } from '@/lib/content';
 
 interface PageProps {
   params: { slug: string };
@@ -70,18 +75,22 @@ export default async function GuidePage({ params }: PageProps) {
   // Generate TOC from markdown if not provided in frontmatter
   const toc = metadata.toc || generateTOC(content);
 
-  // Convert markdown to HTML with IDs for TOC navigation
-  let htmlContent = markdownToHtml(content);
+  // MDX Components mapping
+  const components = {
+    // Add any custom components here if needed
+  };
 
-  // Add IDs to headings for TOC navigation
-  htmlContent = htmlContent.replace(/<h([23])>(.+?)<\/h\1>/g, (match, level, text) => {
-    const id = text
-      .toLowerCase()
-      .replace(/<[^>]*>/g, '') // Remove HTML tags
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
-    return `<h${level} id="${id}">${text}</h${level}>`;
-  });
+  // MDX Options
+  const options = {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        rehypeHighlight,
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+      ],
+    },
+  };
 
   return (
     <>
@@ -152,8 +161,9 @@ export default async function GuidePage({ params }: PageProps) {
                     [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-text-secondary
                     [&_blockquote]:border-l-4 [&_blockquote]:border-gold-primary/40 [&_blockquote]:pl-6 [&_blockquote]:py-2 [&_blockquote]:my-6 [&_blockquote]:italic [&_blockquote]:text-text-secondary/80
                     [&_hr]:border-gold-dark/30 [&_hr]:my-12"
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
+                >
+                  <MDXRemote source={content} components={components} options={options} />
+                </div>
               </div>
 
               {/* Related Guides */}
