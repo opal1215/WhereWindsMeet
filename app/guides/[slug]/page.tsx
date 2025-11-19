@@ -11,6 +11,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { TableOfContents } from '@/components/ui/TableOfContents';
 import { RelatedContent } from '@/components/ui/RelatedContent';
 import { FAQ } from '@/components/ui/FAQ';
+import { SocialShare } from '@/components/ui/SocialShare';
 import { getGuideBySlug, getAllGuides, generateTOC } from '@/lib/content';
 
 interface PageProps {
@@ -139,6 +140,12 @@ export default async function GuidePage({ params }: PageProps) {
                   <span>•</span>
                   <span>Updated: {new Date(metadata.dateModified).toLocaleDateString()}</span>
                 </div>
+
+                {/* Social Share Buttons */}
+                <SocialShare
+                  url={`https://wherewindsmeetgame.org/guides/${slug}`}
+                  title={metadata.title}
+                />
               </header>
 
               {/* Article Content */}
