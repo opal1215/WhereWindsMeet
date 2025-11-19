@@ -62,8 +62,8 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
     <nav className={`sticky top-24 ${className}`}>
       <div className="bg-bg-card border border-gold-dark/30 rounded-lg p-6">
         <div className="flex items-center gap-2 mb-4">
-          <List className="w-5 h-5 text-gold-primary" />
-          <h3 className="font-display text-lg text-gold-primary font-bold">
+          <List className="w-5 h-5 text-text-muted" />
+          <h3 className="font-display text-lg text-text-primary font-bold">
             {title}
           </h3>
         </div>
@@ -77,11 +77,10 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
               <li key={item.id} style={{ paddingLeft: `${paddingLeft}px` }}>
                 <button
                   onClick={() => handleClick(item.id)}
-                  className={`text-sm text-left w-full py-1.5 px-3 rounded transition-all ${
-                    isActive
-                      ? 'text-gold-bright bg-gold-primary/10 border-l-2 border-gold-primary'
-                      : 'text-text-secondary hover:text-gold-bright hover:bg-gold-primary/5'
-                  }`}
+                  className={`text-sm text-left w-full py-1.5 px-3 rounded transition-all ${isActive
+                      ? 'text-accent-red font-semibold bg-bg-secondary border-l-2 border-accent-red'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-black/5'
+                    }`}
                 >
                   {item.text}
                 </button>

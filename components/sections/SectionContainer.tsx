@@ -21,8 +21,8 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
 }) => {
   // Background color mapping
   const bgColors = {
-    primary: 'bg-bg-primary',
-    secondary: 'bg-bg-secondary',
+    primary: 'bg-bg-primary', // Warm Parchment
+    secondary: 'bg-bg-secondary', // Darker Parchment
     transparent: 'bg-transparent',
   };
 
@@ -67,8 +67,9 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
       </div>
 
       {/* Optional decorative elements (can be enhanced later with actual images) */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-accent/5 rounded-full blur-3xl -z-10" />
+      {/* Optional decorative elements - Removed blur blobs for clean paper look */}
+      {/* <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/5 rounded-full blur-3xl -z-10" /> */}
+      {/* <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-accent/5 rounded-full blur-3xl -z-10" /> */}
     </section>
   );
 };

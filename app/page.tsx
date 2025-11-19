@@ -12,16 +12,16 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <Hero
-        title="Find Your Way Through the Wuxia Winds"
-        subtitle="Beginner tips, builds, maps and resources for PS5 & PC players."
+        title="Carve Your Legend in the Wuxia World"
+        subtitle="The ultimate compendium for Where Winds Meet. Master martial arts, discover secrets, and forge your destiny."
         goldSubtitle={true}
         backgroundImage="/images/hero-bg.webp"
         primaryCTA={{
-          label: 'Start Here',
+          label: 'Begin Journey',
           href: '/guides/is-where-winds-meet-for-you',
         }}
         secondaryCTA={{
-          label: 'Free Codes',
+          label: 'Claim Rewards',
           href: '/codes',
         }}
       />
@@ -29,26 +29,26 @@ export default function HomePage() {
       {/* Redemption Codes CTA Banner - Fixed Top Right */}
       <a
         href="/codes"
-        className="fixed top-24 right-10 z-40 group w-52 bg-gold-primary/10 backdrop-blur-md border-2 border-gold-primary/40 rounded-xl overflow-hidden hover:border-gold-primary/70 hover:bg-gold-primary/15 transition-all duration-300 hidden lg:block"
+        className="fixed top-24 right-10 z-40 group w-52 bg-bg-card/90 backdrop-blur-md border-2 border-gold-primary/40 rounded-lg overflow-hidden hover:border-gold-primary hover:bg-bg-card transition-all duration-300 hidden lg:block shadow-card"
       >
         {/* Content */}
         <div className="p-4">
           <div className="flex items-center gap-2 mb-1.5">
             <Gift className="w-4 h-4 text-gold-primary flex-shrink-0" />
-            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-gold-primary/20 border border-gold-primary/40 rounded-full">
+            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-gold-primary/10 border border-gold-primary/30 rounded-sm">
               <div className="w-1 h-1 rounded-full bg-gold-primary animate-pulse"></div>
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-wide">
+              <span className="text-[10px] font-bold text-gold-dark uppercase tracking-wide">
                 Latest
               </span>
             </div>
           </div>
-          <h3 className="font-bold text-text-primary mb-0.5 text-xs">
+          <h3 className="font-display font-bold text-text-primary mb-0.5 text-xs">
             Free Redemption Codes
           </h3>
-          <p className="text-[10px] text-text-secondary mb-2 leading-tight">
+          <p className="text-[10px] text-text-secondary mb-2 leading-tight font-body">
             Echo Jade, Coins & rewards
           </p>
-          <div className="flex items-center gap-1.5 text-gold-bright text-xs font-semibold group-hover:text-gold-primary transition-colors">
+          <div className="flex items-center gap-1.5 text-gold-dark text-xs font-semibold group-hover:text-gold-primary transition-colors">
             <span>Claim Now</span>
             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
           </div>
@@ -56,18 +56,19 @@ export default function HomePage() {
       </a>
 
       {/* Getting Started Section */}
-      <div className="mt-32"></div>
+      <div className="mt-12"></div>
       <SectionContainer
-        title="New to Where Winds Meet?"
-        subtitle="Start your journey with these essential guides"
+        title="New to the Jianghu?"
+        subtitle="Essential knowledge for every wandering swordsman"
         background="secondary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card
             title="Is Where Winds Meet for You?"
             description="Honest breakdown for Souls players, Genshin fans, and MMO veterans. Learn if this game matches your playstyle."
             href="/guides/is-where-winds-meet-for-you"
             icon={<BookOpen className="w-8 h-8" />}
+            image="/images/mystic-preview.jpg"
           />
           <Card
             title="First 3 Hours Guide"
@@ -86,17 +87,18 @@ export default function HomePage() {
             description="Practical combat overview for beginners: weapons, martial arts, and easy builds that feel good to play."
             href="/guides/combat-guide-beginner-builds"
             icon={<Sword className="w-8 h-8" />}
+            image="/images/combat-preview.jpg"
           />
         </div>
       </SectionContainer>
 
       {/* Popular Builds Section */}
       <SectionContainer
-        title="Popular Builds"
-        subtitle="Discover the most effective character builds for PVE and PVP"
+        title="Martial Arts & Builds"
+        subtitle="Discover the most effective styles for PVE and PVP"
         background="primary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <Card
             title="PVE DPS Build"
             description="Maximum damage output for boss fights and dungeons."
@@ -147,25 +149,31 @@ export default function HomePage() {
               </div>
             </Card>
           </div>
-          <div className="aspect-video bg-bg-primary/50 rounded-lg border border-gold-dark/30 flex items-center justify-center">
-            <p className="font-ui text-text-muted">Map Preview (Coming Soon)</p>
+          <div className="aspect-video rounded-lg border-2 border-gold-dark/30 overflow-hidden shadow-card relative group">
+            <img
+              src="/images/world-preview.jpg"
+              alt="World Map Preview"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
           </div>
         </div>
       </SectionContainer>
 
       {/* Tools Section */}
       <SectionContainer
-        title="Interactive Tools"
+        title="Scholar's Tools"
         subtitle="Plan your build, track progress, and optimize your gameplay"
         background="primary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card
             title="Build Planner"
             description="Theory-craft and optimize your character build with our interactive planner."
             href="/tools/build-planner"
             icon={<Calculator className="w-8 h-8" />}
             variant="compact"
+            image="/images/character-preview.jpg"
           />
           <Card
             title="XP Calculator"

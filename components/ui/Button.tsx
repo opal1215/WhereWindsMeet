@@ -27,9 +27,9 @@ export const Button: React.FC<ButtonProps> = ({
 
   // Variant styles
   const variantStyles = {
-    primary: 'bg-transparent border-2 border-gold-primary text-gold-bright hover:bg-gold-primary hover:text-bg-primary hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(212,175,55,0.3)]',
-    secondary: 'bg-blue-accent text-white border-2 border-blue-accent hover:bg-transparent hover:text-blue-accent hover:-translate-y-0.5',
-    outline: 'bg-transparent border-2 border-text-secondary text-text-secondary hover:border-gold-bright hover:text-gold-bright hover:-translate-y-0.5',
+    primary: 'bg-gold-primary text-bg-primary border-2 border-gold-primary hover:bg-gold-bright hover:border-gold-bright hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(198,166,100,0.4)] font-display font-bold tracking-wide',
+    secondary: 'bg-accent-indigo text-white border-2 border-accent-indigo hover:bg-transparent hover:text-accent-indigo hover:-translate-y-0.5',
+    outline: 'bg-transparent border-2 border-gold-dark/50 text-gold-dark hover:border-gold-primary hover:text-gold-primary hover:-translate-y-0.5',
   };
 
   // Size styles

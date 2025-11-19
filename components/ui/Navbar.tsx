@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-gold-primary/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-gold-dark/10 shadow-sm">
       <div className="max-w-[1400px] mx-auto px-5 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -142,9 +142,8 @@ export const Navbar: React.FC<NavbarProps> = ({ links = defaultLinks }) => {
                         className="p-2 text-gold-primary"
                       >
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            openSubmenu === link.label ? 'rotate-180' : ''
-                          }`}
+                          className={`w-4 h-4 transition-transform ${openSubmenu === link.label ? 'rotate-180' : ''
+                            }`}
                         />
                       </button>
                     )}
