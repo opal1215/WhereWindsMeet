@@ -88,7 +88,7 @@ export default async function GuidePage({ params }: PageProps) {
         rehypeHighlight,
         rehypeSlug,
         [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-      ],
+      ] as any,
     },
   };
 
