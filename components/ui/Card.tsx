@@ -70,7 +70,7 @@ export const Card: React.FC<CardProps> = ({
 
       {/* Link indicator (if href provided) */}
       {href && (
-        <div className="flex items-center gap-2 text-gold-bright font-semibold group-hover:text-gold-primary transition-all group-hover:translate-x-1">
+        <div className="flex items-center gap-2 text-gold-dark font-bold group-hover:text-gold-primary transition-all group-hover:translate-x-1">
           <span>Read More</span>
           <ArrowRight className="w-4 h-4" />
         </div>

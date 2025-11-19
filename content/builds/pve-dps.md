@@ -6,7 +6,7 @@ playstyle: "Aggressive Melee DPS"
 author: "WWM Builds Team"
 datePublished: "2025-11-15"
 dateModified: "2025-11-18"
-image: "/images/cards/build-pve-dps.jpg"
+image: "/images/combat-preview.jpg"
 stats:
   damage: 95
   defense: 40
