@@ -28,7 +28,7 @@ interface Boss {
 const bossData: Boss[] = [
   {
     id: 'shadow-puppet',
-    name: 'Shadow Puppet (皮影·幕起)',
+    name: 'Shadow Puppet',
     level: 15,
     location: 'Qinghe Village - Theater',
     difficulty: 'Normal',
@@ -41,7 +41,7 @@ const bossData: Boss[] = [
   },
   {
     id: 'ghost-hand',
-    name: 'Ghost Hand (鬼手)',
+    name: 'Ghost Hand',
     level: 40,
     location: 'Kaifeng - Underground',
     difficulty: 'Elite',
@@ -54,7 +54,7 @@ const bossData: Boss[] = [
   },
   {
     id: 'ye-wanshan',
-    name: 'Ye Wanshan (叶万山)',
+    name: 'Ye Wanshan',
     level: 60,
     location: 'Wilderness - Bandit Camp',
     difficulty: 'World Boss',
@@ -67,7 +67,7 @@ const bossData: Boss[] = [
   },
   {
     id: 'wuxiang-emperor',
-    name: 'Wuxiang Emperor (无相皇)',
+    name: 'Wuxiang Emperor',
     level: 80,
     location: 'Forbidden City - Inner Sanctum',
     difficulty: 'Raid Boss',
