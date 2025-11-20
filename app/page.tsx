@@ -15,7 +15,7 @@ export default function HomePage() {
         title="Carve Your Legend in the Wuxia World"
         subtitle="The ultimate compendium for Where Winds Meet. Master martial arts, discover secrets, and forge your destiny."
         goldSubtitle={true}
-        backgroundImage="/images/hero-bg.webp"
+        backgroundImage="/images/hero-bg-hd.webp"
         primaryCTA={{
           label: 'Begin Journey',
           href: '/guides/is-where-winds-meet-for-you',
