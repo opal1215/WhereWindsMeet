@@ -33,13 +33,10 @@ export const Hero: React.FC<HeroProps> = ({
     <section className={`relative ${heightClass}`}>
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
-        <Image
+        <img
           src={backgroundImage}
           alt={title}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
+          className="w-full h-full object-cover"
         />
       </div>
 
