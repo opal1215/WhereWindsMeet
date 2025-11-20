@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { Footer } from '@/components/ui/Footer';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -98,6 +99,9 @@ export default function RootLayout({
       <body className="antialiased">
         {/* Google Analytics 4 */}
         <GoogleAnalytics measurementId="G-VPSL5K8MFF" />
+
+        {/* Microsoft Clarity */}
+        <MicrosoftClarity projectId="u8w5l6neaq" />
 
         <Navbar />
         <main>{children}</main>
